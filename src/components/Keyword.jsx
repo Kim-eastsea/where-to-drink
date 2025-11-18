@@ -7,6 +7,7 @@ const Keyword = ({
   setKeyword2,
   keyword3,
   setKeyword3,
+  language,
 }) => {
   const [tempKey1, setTempKey1] = useState(keyword1 || "전체");
   const [tempKey2, setTempKey2] = useState(keyword2 || "전체");
@@ -22,113 +23,115 @@ const Keyword = ({
   return (
     <Container>
       <KeywordBox>
-        <Label>위치</Label>
+        <Label>{language === "Kor" ? "위치" : "Location"}</Label>
         <Options>
           <OptionBtn
             isActive={tempKey1 === "전체"}
             onClick={() => setTempKey1("전체")}
           >
-            전체
+            {language === "Kor" ? "전체" : "All"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey1 === "북문"}
             onClick={() => setTempKey1("북문")}
           >
-            북문
+            {language === "Kor" ? "북문" : "North Gate"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey1 === "정문"}
             onClick={() => setTempKey1("정문")}
           >
-            정문
+            {language === "Kor" ? "정문" : "Main Gate"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey1 === "쪽문"}
             onClick={() => setTempKey1("쪽문")}
           >
-            쪽문
+            {language === "Kor" ? "쪽문" : "Side Gate"}
           </OptionBtn>
         </Options>
       </KeywordBox>
 
       <KeywordBox>
-        <Label>음식</Label>
+        <Label>{language === "Kor" ? "음식" : "Food"}</Label>
         <Options>
           <OptionBtn
             isActive={tempKey2 === "전체"}
             onClick={() => setTempKey2("전체")}
           >
-            전체
+            {language === "Kor" ? "전체" : "All"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey2 === "한식"}
             onClick={() => setTempKey2("한식")}
           >
-            한식
+            {language === "Kor" ? "한식" : "Korean"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey2 === "양식"}
             onClick={() => setTempKey2("양식")}
           >
-            양식
+            {language === "Kor" ? "양식" : "Western"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey2 === "일식"}
             onClick={() => setTempKey2("일식")}
           >
-            일식
+            {language === "Kor" ? "일식" : "Japanese"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey2 === "중식"}
             onClick={() => setTempKey2("중식")}
           >
-            중식
+            {language === "Kor" ? "중식" : "Chinese"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey2 === "혼합"}
             onClick={() => setTempKey2("혼합")}
           >
-            혼합
+            {language === "Kor" ? "혼합" : "Mixed"}
           </OptionBtn>
         </Options>
       </KeywordBox>
       <KeywordBox>
-        <Label>분위기</Label>
+        <Label>{language === "Kor" ? "분위기" : "Mood"}</Label>
         <Options>
           <OptionBtn
             isActive={tempKey3 === "전체"}
             onClick={() => setTempKey3("전체")}
           >
-            전체
+            {language === "Kor" ? "전체" : "All"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey3 === "회식"}
             onClick={() => setTempKey3("회식")}
           >
-            회식
+            {language === "Kor" ? "회식" : "Company Dinner"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey3 === "지인"}
             onClick={() => setTempKey3("지인")}
           >
-            지인
+            {language === "Kor" ? "지인" : "With Friends"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey3 === "커플"}
             onClick={() => setTempKey3("커플")}
           >
-            커플
+            {language === "Kor" ? "커플" : "Couple"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey3 === "과팅"}
             onClick={() => setTempKey3("과팅")}
           >
-            과팅
+            {language === "Kor" ? "과팅" : "Group Dating"}
           </OptionBtn>
         </Options>
       </KeywordBox>
 
-      <RerollBtn onClick={handleReroll}>🎲 돌려돌려 돌림판</RerollBtn>
+      <RerollBtn onClick={handleReroll}>
+        {language === "Kor" ? "🎲 돌려돌려 돌림판" : "🎲 Spin the Wheel"}
+      </RerollBtn>
     </Container>
   );
 };
@@ -140,7 +143,7 @@ const Container = styled.div`
   flex-direction: column;
   gap: 15px;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
   background: white;
   padding: 20px;
   border-radius: 15px;
@@ -154,7 +157,7 @@ const KeywordBox = styled.div`
 
 const Label = styled.span`
   font-weight: bold;
-  min-width: 60px;
+  min-width: 70px;
   color: #333;
 `;
 
