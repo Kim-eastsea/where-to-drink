@@ -1,22 +1,12 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-const Keyword = ({
-  keyword1,
-  setKeyword1,
-  keyword2,
-  setKeyword2,
-  keyword3,
-  setKeyword3,
-  language,
-}) => {
+const Keyword = ({ keyword1, keyword2, keyword3, language, onReroll }) => {
   const [tempKey1, setTempKey1] = useState(keyword1 || "전체");
   const [tempKey2, setTempKey2] = useState(keyword2 || "전체");
   const [tempKey3, setTempKey3] = useState(keyword3 || "전체");
 
   const handleReroll = () => {
-    setKeyword1(tempKey1);
-    setKeyword2(tempKey2);
-    setKeyword3(tempKey3);
+    onReroll(tempKey1, tempKey2, tempKey3);
     console.log("Rerolled with:", tempKey1, tempKey2, tempKey3);
   };
 
@@ -89,7 +79,7 @@ const Keyword = ({
             isActive={tempKey2 === "혼합"}
             onClick={() => setTempKey2("혼합")}
           >
-            {language === "Kor" ? "혼합" : "Mixed"}
+            {language === "Kor" ? "혼합" : "Fusion"}
           </OptionBtn>
         </Options>
       </KeywordBox>
@@ -106,7 +96,7 @@ const Keyword = ({
             isActive={tempKey3 === "회식"}
             onClick={() => setTempKey3("회식")}
           >
-            {language === "Kor" ? "회식" : "Company Dinner"}
+            {language === "Kor" ? "회식" : "Groups"}
           </OptionBtn>
           <OptionBtn
             isActive={tempKey3 === "지인"}

@@ -13,6 +13,13 @@ function App() {
   const [keyword3, setKeyword3] = useState("전체");
   const [language, setLanguage] = useState("Kor");
   const [error, setError] = useState(false);
+  const [trigger, setTrigger] = useState(0);
+  const handleReroll = (k1, k2, k3) => {
+    setKeyword1(k1);
+    setKeyword2(k2);
+    setKeyword3(k3);
+    setTrigger((prev) => prev + 1);
+  };
 
   return (
     <>
@@ -40,10 +47,8 @@ function App() {
           keyword1={keyword1}
           keyword2={keyword2}
           keyword3={keyword3}
-          setKeyword1={setKeyword1}
-          setKeyword2={setKeyword2}
-          setKeyword3={setKeyword3}
           language={language}
+          onReroll={handleReroll}
         />
         <MainPage
           keyword1={keyword1}
@@ -52,6 +57,7 @@ function App() {
           language={language}
           error={error}
           setError={setError}
+          trigger={trigger}
         />
       </Container>
     </>

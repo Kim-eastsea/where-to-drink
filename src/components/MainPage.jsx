@@ -7,6 +7,7 @@ const MainPage = ({
   language,
   error,
   setError,
+  trigger,
 }) => {
   return (
     <>
@@ -17,6 +18,7 @@ const MainPage = ({
         language={language}
         error={error}
         setError={setError}
+        trigger={trigger}
       />
       {error === true ? (
         <EmptyMessage>
