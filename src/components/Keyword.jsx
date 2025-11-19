@@ -1,13 +1,21 @@
 import styled from "@emotion/styled";
 import { useState } from "react";
-const Keyword = ({ keyword1, keyword2, keyword3, language, onReroll }) => {
+const Keyword = ({
+  keyword1,
+  keyword2,
+  keyword3,
+  language,
+  onReroll,
+  isSpinning,
+}) => {
   const [tempKey1, setTempKey1] = useState(keyword1 || "전체");
   const [tempKey2, setTempKey2] = useState(keyword2 || "전체");
   const [tempKey3, setTempKey3] = useState(keyword3 || "전체");
 
   const handleReroll = () => {
-    onReroll(tempKey1, tempKey2, tempKey3);
-    console.log("Rerolled with:", tempKey1, tempKey2, tempKey3);
+    if (!isSpinning) {
+      onReroll(tempKey1, tempKey2, tempKey3);
+    }
   };
 
   return (
@@ -119,8 +127,14 @@ const Keyword = ({ keyword1, keyword2, keyword3, language, onReroll }) => {
         </Options>
       </KeywordBox>
 
-      <RerollBtn onClick={handleReroll}>
-        {language === "Kor" ? "🎲 돌려돌려 돌림판" : "🎲 Spin the Wheel"}
+      <RerollBtn onClick={handleReroll} disabled={isSpinning}>
+        {isSpinning
+          ? language === "Kor"
+            ? "돌리는 중..."
+            : "Spinning..."
+          : language === "Kor"
+          ? "🎲 돌려돌려 돌림판"
+          : "🎲 Spin the Wheel"}
       </RerollBtn>
     </Container>
   );
@@ -139,6 +153,7 @@ const Container = styled.div`
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 `;
+
 const KeywordBox = styled.div`
   display: flex;
   align-items: center;
@@ -157,6 +172,7 @@ const Options = styled.div`
   gap: 5px;
   align-items: center;
 `;
+
 const OptionBtn = styled.button`
   background: none;
   border: none;
@@ -175,6 +191,7 @@ const OptionBtn = styled.button`
     background-color: ${(props) => (props.isActive ? "#f9d9db" : "#f0f0f0")};
   }
 `;
+
 const RerollBtn = styled.button`
   margin-top: 10px;
   justify-content: center;
@@ -195,5 +212,10 @@ const RerollBtn = styled.button`
   }
   &:active {
     transform: translateY(0);
+  }
+  &:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    transform: none;
   }
 `;

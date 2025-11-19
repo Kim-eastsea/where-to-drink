@@ -1,51 +1,109 @@
 import styled from "@emotion/styled";
 import MOCK_DATA from "../constant/mock";
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 
-const BarList = ({ keyword1, keyword2, keyword3, language, randomSeed }) => {
-  const randomPick = useMemo(() => {
-    const filteredData = MOCK_DATA.filter((bar) => {
+const BarList = ({
+  keyword1,
+  keyword2,
+  keyword3,
+  language,
+  randomSeed,
+  onSpinEnd,
+}) => {
+  const filteredData = useMemo(() => {
+    return MOCK_DATA.filter((bar) => {
       const matchLocation = keyword1 === "전체" || bar.kor_loc === keyword1;
-      const matchFood = keyword2 === "전체" || bar.kor_food.includes(keyword2);
+      const matchFood =
+        keyword2 === "전체" ||
+        bar.kor_food.includes(keyword2) ||
+        (keyword2 === "혼합" && bar.kor_food.length > 1);
       const matchMood = keyword3 === "전체" || bar.kor_mood.includes(keyword3);
       return matchLocation && matchFood && matchMood;
     });
+  }, [keyword1, keyword2, keyword3]);
+
+  const [displayedBar, setDisplayedBar] = useState(null);
+
+  useEffect(() => {
+    if (randomSeed === 0) return;
 
     if (filteredData.length === 0) {
-      return null;
+      setDisplayedBar(null);
+      onSpinEnd && onSpinEnd();
+      return;
     }
-    const randomIndex = Math.floor(randomSeed * filteredData.length);
-    return filteredData[randomIndex];
-  }, [keyword1, keyword2, keyword3, randomSeed]);
-  if (!randomPick) {
+
+    let currentCount = 0;
+    const maxShuffles = 20;
+    let currentDelay = 50;
+    let timeoutId = null;
+
+    const shuffle = () => {
+      const tempIndex = Math.floor(Math.random() * MOCK_DATA.length);
+      setDisplayedBar(MOCK_DATA[tempIndex]);
+      currentCount++;
+
+      if (currentCount < maxShuffles) {
+        currentDelay += currentCount * 2;
+        timeoutId = setTimeout(shuffle, currentDelay);
+      } else {
+        const finalIndex = Math.floor(randomSeed * filteredData.length);
+        setDisplayedBar(filteredData[finalIndex]);
+
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ["#f55e6b", "#54a4dd", "#f5a623", "#ffffff", "#ffd700"],
+        });
+        if (onSpinEnd) {
+          onSpinEnd();
+        }
+      }
+    };
+
+    shuffle();
+
+    return () => {
+      clearInterval(timeoutId);
+      confetti.reset();
+    };
+  }, [randomSeed, filteredData]);
+
+  if (!displayedBar && filteredData.length === 0) {
     return (
       <EmptyMessage>
         {language === "Kor"
-          ? "조건에 맞는 음식점이 없습니다."
-          : "No restaurants match the criteria."}
+          ? "조건에 맞는 주점이 없습니다."
+          : "No bars match the selected criteria."}
       </EmptyMessage>
     );
   }
+  if (!displayedBar) {
+    return null;
+  }
+
   return (
     <Container>
-      <RestaurantItem key={randomPick.id}>
-        <img src={randomPick.img_url} />
-        <h3>{randomPick.name}</h3>
+      <RestaurantItem key={displayedBar.id}>
+        <img src={displayedBar.img_url} />
+        <h3>{displayedBar.name}</h3>
         {language === "Kor" ? (
           <p>
-            {randomPick.kor_loc} | {randomPick.kor_mood.join(", ")}
+            {displayedBar.kor_loc} | {displayedBar.kor_mood.join(", ")}
             <br />
-            {randomPick.kor_food.join(", ")}
+            {displayedBar.kor_food.join(", ")}
             <br />
-            <span>{randomPick.kor_hashtag.join(" ")}</span>
+            <span>{displayedBar.kor_hashtag.join(" ")}</span>
           </p>
         ) : (
           <p>
-            {randomPick.eng_loc} | {randomPick.eng_mood.join(", ")}
+            {displayedBar.eng_loc} | {displayedBar.eng_mood.join(", ")}
             <br />
-            {randomPick.eng_food.join(", ")}
+            {displayedBar.eng_food.join(", ")}
             <br />
-            <span>{randomPick.eng_hashtag.join(" ")}</span>
+            <span>{displayedBar.eng_hashtag.join(" ")}</span>
           </p>
         )}
       </RestaurantItem>
@@ -66,6 +124,7 @@ const Container = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
 `;
+
 const RestaurantItem = styled.div`
   display: flex;
   flex-direction: column;
@@ -77,8 +136,8 @@ const RestaurantItem = styled.div`
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   img {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
   }
   h3 {
     margin-bottom: 5px;

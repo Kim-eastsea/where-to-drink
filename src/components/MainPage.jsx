@@ -1,6 +1,12 @@
-import styled from "@emotion/styled";
 import BarList from "./BarList";
-const MainPage = ({ keyword1, keyword2, keyword3, language, randomSeed }) => {
+const MainPage = ({
+  keyword1,
+  keyword2,
+  keyword3,
+  language,
+  randomSeed,
+  onSpinEnd,
+}) => {
   return (
     <>
       <BarList
@@ -9,14 +15,9 @@ const MainPage = ({ keyword1, keyword2, keyword3, language, randomSeed }) => {
         keyword3={keyword3}
         language={language}
         randomSeed={randomSeed}
+        onSpinEnd={onSpinEnd}
       />
     </>
   );
 };
 export default MainPage;
-
-const EmptyMessage = styled.div`
-  text-align: center;
-  color: #888;
-  margin-top: 20px;
-`;
