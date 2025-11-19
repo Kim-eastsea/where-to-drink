@@ -12,13 +12,13 @@ function App() {
   const [keyword2, setKeyword2] = useState("전체");
   const [keyword3, setKeyword3] = useState("전체");
   const [language, setLanguage] = useState("Kor");
-  const [error, setError] = useState(false);
-  const [trigger, setTrigger] = useState(0);
+  const [randomSeed, setRandomSeed] = useState(0);
+
   const handleReroll = (k1, k2, k3) => {
     setKeyword1(k1);
     setKeyword2(k2);
     setKeyword3(k3);
-    setTrigger((prev) => prev + 1);
+    setRandomSeed(Math.random());
   };
 
   return (
@@ -43,21 +43,13 @@ function App() {
             </LanguageBtn>
           </LanguageRow>
         </ProjectTitle>
-        <Keyword
-          keyword1={keyword1}
-          keyword2={keyword2}
-          keyword3={keyword3}
-          language={language}
-          onReroll={handleReroll}
-        />
+        <Keyword language={language} onReroll={handleReroll} />
         <MainPage
           keyword1={keyword1}
           keyword2={keyword2}
           keyword3={keyword3}
           language={language}
-          error={error}
-          setError={setError}
-          trigger={trigger}
+          randomSeed={randomSeed}
         />
       </Container>
     </>

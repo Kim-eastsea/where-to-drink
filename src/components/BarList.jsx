@@ -1,37 +1,30 @@
 import styled from "@emotion/styled";
 import MOCK_DATA from "../constant/mock";
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 
-const BarList = ({
-  keyword1,
-  keyword2,
-  keyword3,
-  language,
-  setError,
-  trigger,
-}) => {
-  const filteredData = MOCK_DATA.filter((bar) => {
-    const matchLocation = keyword1 === "전체" || bar.kor_loc === keyword1;
-    const matchFood = keyword2 === "전체" || bar.kor_food.includes(keyword2);
-    const matchMood = keyword3 === "전체" || bar.kor_mood.includes(keyword3);
-    return matchLocation && matchFood && matchMood;
-  });
+const BarList = ({ keyword1, keyword2, keyword3, language, randomSeed }) => {
+  const randomPick = useMemo(() => {
+    const filteredData = MOCK_DATA.filter((bar) => {
+      const matchLocation = keyword1 === "전체" || bar.kor_loc === keyword1;
+      const matchFood = keyword2 === "전체" || bar.kor_food.includes(keyword2);
+      const matchMood = keyword3 === "전체" || bar.kor_mood.includes(keyword3);
+      return matchLocation && matchFood && matchMood;
+    });
 
-  const [randomPick, setRandomPick] = useState(null);
-
-  useEffect(() => {
-    if (filteredData.length > 0) {
-      const randomIndex = Math.floor(Math.random() * filteredData.length);
-      setRandomPick(filteredData[randomIndex]);
-      setError(false);
-    } else {
-      setRandomPick(null);
-      setError(true);
+    if (filteredData.length === 0) {
+      return null;
     }
-  }, [trigger, keyword1, keyword2, keyword3, setError]);
-
+    const randomIndex = Math.floor(randomSeed * filteredData.length);
+    return filteredData[randomIndex];
+  }, [keyword1, keyword2, keyword3, randomSeed]);
   if (!randomPick) {
-    return null;
+    return (
+      <EmptyMessage>
+        {language === "Kor"
+          ? "조건에 맞는 음식점이 없습니다."
+          : "No restaurants match the criteria."}
+      </EmptyMessage>
+    );
   }
   return (
     <Container>
@@ -100,4 +93,10 @@ const RestaurantItem = styled.div`
     color: #54a4dd;
     font-weight: 500;
   }
+`;
+
+const EmptyMessage = styled.div`
+  text-align: center;
+  color: #888;
+  margin-top: 20px;
 `;

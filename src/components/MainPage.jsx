@@ -1,14 +1,6 @@
 import styled from "@emotion/styled";
 import BarList from "./BarList";
-const MainPage = ({
-  keyword1,
-  keyword2,
-  keyword3,
-  language,
-  error,
-  setError,
-  trigger,
-}) => {
+const MainPage = ({ keyword1, keyword2, keyword3, language, randomSeed }) => {
   return (
     <>
       <BarList
@@ -16,19 +8,8 @@ const MainPage = ({
         keyword2={keyword2}
         keyword3={keyword3}
         language={language}
-        error={error}
-        setError={setError}
-        trigger={trigger}
+        randomSeed={randomSeed}
       />
-      {error === true ? (
-        <EmptyMessage>
-          {language === "Kor"
-            ? "조건에 맞는 술집이 없습니다."
-            : "No bars found matching the criteria."}
-        </EmptyMessage>
-      ) : (
-        ""
-      )}
     </>
   );
 };
