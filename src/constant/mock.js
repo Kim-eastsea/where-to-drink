@@ -11,6 +11,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Western", "Japanese", "Chinese", "Fusion"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#MyPick", "#SpicyCreamPasta", "#GoodVibes"],
+    web_link: "test",
   },
   {
     id: 2,
