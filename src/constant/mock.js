@@ -11,7 +11,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Western", "Japanese", "Chinese", "Fusion"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#MyPick", "#SpicyCreamPasta", "#GoodVibes"],
-    web_link: "test",
+    web_link: "https://map.naver.com/p/entry/place/1956104979?c=15.00,0,0,0,dh",
   },
   {
     id: 2,
@@ -24,6 +24,7 @@ const MOCK_DATA = [
     eng_food: ["Japanese"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#2ndPick", "#PollackRoeCreamUdon", "#NewPub"],
+    web_link: "https://map.naver.com/p/entry/place/2052226947?c=15.00,0,0,0,dh",
   },
   {
     id: 3,
@@ -41,6 +42,7 @@ const MOCK_DATA = [
       "#TangerineHat",
       "#Spacious",
     ],
+    web_link: "https://map.naver.com/p/entry/place/1342206450?c=15.00,0,0,0,dh",
   },
   {
     id: 4,
@@ -61,6 +63,7 @@ const MOCK_DATA = [
       "#GoodRiceWine",
       "#TastyMungBeanPancake",
     ],
+    web_link: "https://map.naver.com/p/entry/place/335604916?c=15.00,0,0,0,dh",
   },
   {
     id: 5,
@@ -73,6 +76,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Western", "Chinese", "Fusion"],
     eng_mood: ["Groups", "Friends", "Couples"],
     eng_hashtag: ["#DarkAtmosphere", "#FreeCheeseSnacks", "#SpoonPizza"],
+    web_link: "https://map.naver.com/p/entry/place/36175140?c=15.00,0,0,0,dh",
   },
   {
     id: 6,
@@ -85,6 +89,7 @@ const MOCK_DATA = [
     eng_food: ["Japanese"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes", "#IzakayaStyle"],
+    web_link: "https://map.naver.com/p/entry/place/1638911029?c=15.00,0,0,0,adh"
   },
   {
     id: 7,
@@ -97,6 +102,7 @@ const MOCK_DATA = [
     eng_food: ["Japanese"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes", "#IzakayaStyle", "#Yakisoba"],
+    web_link: "https://map.naver.com/p/entry/place/1468664455?c=15.00,0,0,0,dh"
   },
   {
     id: 8,
@@ -109,6 +115,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Western", "Japanese", "Fusion"],
     eng_mood: ["Groups", "Friends", "Couples"],
     eng_hashtag: ["#GoodForEvents", "#ShabuShabu", "#TastyFreeSnacks"],
+    web_link: "https://map.naver.com/p/entry/place/1555072378?c=15.00,0,0,0,dh"
   },
   {
     id: 9,
@@ -121,6 +128,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#GoodForBaseball", "#GoodForEvents", "#ChickenDishes"],
+    web_link: "https://map.naver.com/p/entry/place/1234772562?c=15.00,0,0,0,dh"
   },
   {
     id: 10,
@@ -133,6 +141,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#TastyDishes", "#GroupsOf10OK", "#GoodVibes"],
+    web_link: "https://map.naver.com/p/entry/place/1519176028?c=15.00,0,0,0,dh"
   },
   {
     id: 11,
@@ -145,6 +154,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#SweetPotatoCreamRiceWine", "#GoodVibes"],
+    web_link: "https://map.naver.com/p/entry/place/31663892?c=15.00,0,0,0,dh"
   },
   {
     id: 12,
@@ -157,6 +167,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Group Dating"],
     eng_hashtag: ["#PrivateRoom"],
+    web_link: "https://map.naver.com/p/entry/place/1295630060?c=15.00,0,0,0,dh"
   },
   {
     id: 13,
@@ -169,6 +180,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Group Dating"],
     eng_hashtag: ["#PrivateRoom"],
+    web_link: "https://map.naver.com/p/entry/place/1943296021?c=15.00,0,0,0,dh"
   },
   {
     id: 14,
@@ -181,6 +193,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Western", "Japanese", "Fusion"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#HalfHalfSeasonedGrill", "#GoodForEvents", "#ScreenAndMic"],
+    web_link: "https://map.naver.com/p/entry/place/1667063210?c=15.00,0,0,0,dh"
   },
   {
     id: 15,
@@ -193,6 +206,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Japanese", "Fusion"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#Basement", "#GoodForEvents"],
+    web_link: "https://map.naver.com/p/entry/place/1346947035?c=15.00,0,0,0,dh"
   },
   {
     id: 16,
@@ -205,6 +219,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#SeparateFloors(2nd,3rd)"],
+    web_link: "https://map.naver.com/p/entry/place/1238323405?c=15.00,0,0,0,dh"
   },
   {
     id: 17,
@@ -217,6 +232,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#ChickenDishes", "#GoodForEvents", "#ChickenFeet"],
+    web_link: "https://map.naver.com/p/entry/place/1699120034?c=15.00,0,0,0,dh"
   },
   {
     id: 18,
@@ -229,6 +245,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#BeefTartare", "#RawBeefSashimi"],
+    web_link: "https://map.naver.com/p/entry/place/2047985103?c=15.00,0,0,0,dh"
   },
   {
     id: 19,
@@ -241,6 +258,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Western", "Fusion"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes"],
+    web_link: "https://map.naver.com/p/entry/place/1051677608?c=15.00,0,0,0,dh"
   },
   {
     id: 20,
@@ -253,6 +271,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#HangoverSoup", "#LastStop", "#DrinkUntilMorning"],
+    web_link: "https://map.naver.com/p/entry/place/1380357945?c=15.00,0,0,0,dh"
   },
   {
     id: 21,
@@ -265,6 +284,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#ChickenFeet"],
+    web_link: "https://map.naver.com/p/entry/place/2060658035?c=15.00,0,0,0,dh"
   },
   {
     id: 22,
@@ -277,6 +297,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: ["#PancakeHouse"],
+    web_link: "https://map.naver.com/p/entry/place/1757644998?c=15.00,0,0,0,dh"
   },
   {
     id: 23,
@@ -289,6 +310,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Japanese"],
     eng_mood: ["Groups", "Friends", "Couples"],
     eng_hashtag: ["#GoodVibes"],
+    web_link: "https://map.naver.com/p/entry/place/1771915294?c=15.00,0,0,0,dh"
   },
   {
     id: 24,
@@ -301,6 +323,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Western", "Japanese", "Chinese", "Fusion"],
     eng_mood: ["Friends"],
     eng_hashtag: ["#Basic", "#FamousPub"],
+    web_link: "https://map.naver.com/p/entry/place/35629412?c=15.00,0,0,0,dh"
   },
   {
     id: 25,
@@ -313,6 +336,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: [],
+    web_link: "https://map.naver.com/p/entry/place/35629412?c=15.00,0,0,0,dh"
   },
   {
     id: 26,
@@ -325,6 +349,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: [],
+    web_link: "https://map.naver.com/p/entry/place/651069155?c=15.00,0,0,0,dh"
   },
   {
     id: 27,
@@ -337,6 +362,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Western", "Japanese", "Chinese", "Fusion"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes", "#MapoTofu"],
+    web_link: "https://map.naver.com/p/entry/place/2046192198?c=15.00,0,0,0,dh"
   },
   {
     id: 28,
@@ -349,6 +375,7 @@ const MOCK_DATA = [
     eng_food: ["Chinese"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#LambSkewers"],
+    web_link: "https://map.naver.com/p/entry/place/1045711079?c=15.00,0,0,0,dh"
   },
   {
     id: 29,
@@ -361,6 +388,7 @@ const MOCK_DATA = [
     eng_food: ["Chinese"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#LambSkewers"],
+    web_link: "https://map.naver.com/p/entry/place/38378898?c=15.00,0,0,0,dh"
   },
   {
     id: 30,
@@ -373,6 +401,7 @@ const MOCK_DATA = [
     eng_food: ["Western"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#TastyDraftBeer"],
+    web_link: "https://map.naver.com/p/entry/place/1036376759?c=15.00,0,0,0,dh"
   },
   // --- 정문 (Main Gate) ---
   {
@@ -386,6 +415,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#LastStop"],
+    web_link: "https://map.naver.com/p/entry/place/1038471458?c=15.00,0,0,0,dh"
   },
   {
     id: 32,
@@ -398,6 +428,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Chinese", "Fusion"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#KimchiPizzaTangsuyuk"],
+    web_link: "https://map.naver.com/p/entry/place/1825058903?c=15.00,0,0,0,dh"
   },
   {
     id: 33,
@@ -410,6 +441,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#TastyKimchiStew"],
+    web_link: "https://map.naver.com/p/entry/place/1508542915?c=15.00,0,0,0,dh"
   },
   {
     id: 34,
@@ -422,6 +454,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#ForSeafoodStew"],
+    web_link: "https://map.naver.com/p/entry/place/16133934?c=15.00,0,0,0,dh"
   },
   {
     id: 35,
@@ -434,6 +467,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends", "Couples"],
     eng_hashtag: ["#ForMeat"],
+    web_link: "https://map.naver.com/p/entry/place/567693401?c=15.00,0,0,0,dh"
   },
   {
     id: 36,
@@ -446,6 +480,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: ["#GoodValue"],
+    web_link: "https://map.naver.com/p/entry/place/19617817?c=15.00,0,0,0,dh"
   },
   {
     id: 37,
@@ -458,6 +493,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: [],
+    web_link: "https://map.naver.com/p/entry/place/1022713177?c=15.00,0,0,0,dh"
   },
   {
     id: 38,
@@ -470,6 +506,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#LotsOfTastyFood"],
+    web_link: "https://map.naver.com/p/entry/place/1022713177?c=15.00,0,0,0,dh"
   },
   {
     id: 39,
@@ -482,6 +519,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#HeartyMealAndDrink"],
+    web_link: "https://map.naver.com/p/entry/place/449602605?c=15.00,0,0,0,dh"
   },
   {
     id: 40,
@@ -494,6 +532,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#SeasonalFruitSnack"],
+    web_link: "https://map.naver.com/p/entry/place/38365272?c=15.00,0,0,0,dh"
   },
   {
     id: 41,
@@ -506,6 +545,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: [],
+    web_link: "https://map.naver.com/p/entry/place/1162274841?c=15.00,0,0,0,dh"
   },
   {
     id: 42,
@@ -518,6 +558,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: ["#GoodWithFriends"],
+    web_link: "https://map.naver.com/p/entry/place/1428840850?c=15.00,0,0,0,dh"
   },
   {
     id: 43,
@@ -530,6 +571,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#ForRawBeef"],
+    web_link: "https://map.naver.com/p/entry/place/1744477600?c=15.00,0,0,0,dh"
   },
   {
     id: 44,
@@ -542,6 +584,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#HeartyMealAndDrink", "#WhenNoPlaceToGo"],
+    web_link: "https://map.naver.com/p/entry/place/13188094?c=15.00,0,0,0,dh"
   },
   {
     id: 45,
@@ -554,6 +597,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends", "Couples"],
     eng_hashtag: ["#TastyFoodAndDrink"],
+    web_link: "https://map.naver.com/p/entry/place/1502192494?c=15.00,0,0,0,dh"
   },
   {
     id: 46,
@@ -566,7 +610,9 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: [],
+    web_link: "https://map.naver.com/p/entry/place/19677149?c=15.00,0,0,0,dh"
   },
+
   // --- 쪽문 (Side Gate) ---
   {
     id: 47,
@@ -579,6 +625,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#RecommendedForGroups", "#CheeseEggRoll"],
+    web_link: "https://map.naver.com/p/entry/place/1065583558?c=15.00,0,0,0,dh",
   },
   {
     id: 48,
@@ -591,6 +638,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: ["#GoodValue"],
+    web_link: "https://map.naver.com/p/entry/place/38367700?c=15.00,0,0,0,dh",
   },
   {
     id: 49,
@@ -603,6 +651,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: ["#GoodValue", "#CheapAndTasty"],
+    web_link: "https://map.naver.com/p/entry/place/19661483?c=15.00,0,0,0,dh",
   },
   {
     id: 50,
@@ -615,6 +664,7 @@ const MOCK_DATA = [
     eng_food: ["Western"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes", "#CuteCat"],
+    web_link: "https://map.naver.com/p/entry/place/1269237890?c=15.00,0,0,0,dh",
   },
   {
     id: 51,
@@ -627,6 +677,7 @@ const MOCK_DATA = [
     eng_food: ["Korean", "Japanese"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: [],
+    web_link: "https://map.naver.com/p/entry/place/2029223476?c=15.00,0,0,0,dh",
   },
   {
     id: 52,
@@ -639,6 +690,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: [],
+    web_link: "https://map.naver.com/p/entry/place/1140332547?c=15.00,0,0,0,dh",
   },
   {
     id: 53,
@@ -651,6 +703,7 @@ const MOCK_DATA = [
     eng_food: ["Western"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes"],
+    web_link: "https://map.naver.com/p/entry/place/1195998994?c=15.00,0,0,0,dh",
   },
   {
     id: 54,
@@ -667,6 +720,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#LargeGroupsOK", "#BeamProjector", "#TastyChicken"],
+    web_link: "https://map.naver.com/p/entry/place/1942043571?c=15.00,0,0,0,dh",
   },
   {
     id: 55,
@@ -679,6 +733,7 @@ const MOCK_DATA = [
     eng_food: ["Japanese"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#TastyButHotInSummer"],
+    web_link: "https://map.naver.com/p/entry/place/16135779?c=15.00,0,0,0,dh",
   },
   {
     id: 56,
@@ -691,6 +746,7 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends"],
     eng_hashtag: ["#HangoverDrink"],
+    web_link: "https://map.naver.com/p/entry/place/1422484329?c=15.00,0,0,0,dh",
   },
   {
     id: 57,
@@ -703,6 +759,8 @@ const MOCK_DATA = [
     eng_food: ["Korean"],
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#TastyRawFishSoup"],
+    web_link: "https://map.naver.com/p/entry/place/1182741994?c=15.00,0,0,0,dh",
+    img_url: "",
   },
 ];
 export default MOCK_DATA;

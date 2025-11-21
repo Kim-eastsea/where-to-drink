@@ -94,6 +94,13 @@ const BarList = ({
             {displayedBar.kor_loc} | {displayedBar.kor_mood.join(", ")}
             <br />
             {displayedBar.kor_food.join(", ")}
+            <br /> 
+            {
+              // 링크 추가 (클릭하면 바로 사이트로 이동)
+            }
+            <MapBtn href={displayedBar.web_link} target="_blank" rel="noopener noreferrer">
+              <img src="src\constant\img\navermap.png" alt="네이버지도" />
+            </MapBtn>
             <br />
             <span>{displayedBar.kor_hashtag.join(" ")}</span>
           </p>
@@ -102,6 +109,10 @@ const BarList = ({
             {displayedBar.eng_loc} | {displayedBar.eng_mood.join(", ")}
             <br />
             {displayedBar.eng_food.join(", ")}
+            <br />
+            <MapBtn href={displayedBar.web_link} target="_blank" rel="noopener noreferrer">
+              <img src="src\constant\img\navermap.png" alt="네이버지도" />
+            </MapBtn>
             <br />
             <span>{displayedBar.eng_hashtag.join(" ")}</span>
           </p>
@@ -158,4 +169,26 @@ const EmptyMessage = styled.div`
   text-align: center;
   color: #888;
   margin-top: 20px;
+`;
+
+const MapBtn = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 3px 3px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  background: rgba(142, 247, 151, 1);
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+
+  img {
+    width: 34px;
+    height: 34px;
+  }
 `;
