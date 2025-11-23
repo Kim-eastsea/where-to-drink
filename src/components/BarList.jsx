@@ -94,11 +94,15 @@ const BarList = ({
             {displayedBar.kor_loc} | {displayedBar.kor_mood.join(", ")}
             <br />
             {displayedBar.kor_food.join(", ")}
-            <br /> 
+            <br />
             {
               // 링크 추가 (클릭하면 바로 사이트로 이동)
             }
-            <MapBtn href={displayedBar.web_link} target="_blank" rel="noopener noreferrer">
+            <MapBtn
+              href={displayedBar.web_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src="src\constant\img\navermap.png" alt="네이버지도" />
             </MapBtn>
             <br />
@@ -110,7 +114,11 @@ const BarList = ({
             <br />
             {displayedBar.eng_food.join(", ")}
             <br />
-            <MapBtn href={displayedBar.web_link} target="_blank" rel="noopener noreferrer">
+            <MapBtn
+              href={displayedBar.web_link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <img src="src\constant\img\navermap.png" alt="네이버지도" />
             </MapBtn>
             <br />
@@ -147,7 +155,6 @@ const RestaurantItem = styled.div`
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   img {
-    width: 300px;
     height: 300px;
   }
   h3 {
