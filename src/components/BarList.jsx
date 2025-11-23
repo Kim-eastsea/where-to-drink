@@ -103,7 +103,7 @@ const BarList = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="src\constant\img\navermap.png" alt="네이버지도" />
+              <img src="public/img/navermap.png" alt="네이버지도" />
             </MapBtn>
             <br />
             <span>{displayedBar.kor_hashtag.join(" ")}</span>
@@ -119,7 +119,7 @@ const BarList = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src="src\constant\img\navermap.png" alt="네이버지도" />
+              <img src="public/img/navermap.png" alt="네이버지도" />
             </MapBtn>
             <br />
             <span>{displayedBar.eng_hashtag.join(" ")}</span>
