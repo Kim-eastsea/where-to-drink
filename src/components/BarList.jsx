@@ -24,18 +24,31 @@ const BarList = ({
   }, [keyword1, keyword2, keyword3]);
 
   const [displayedBar, setDisplayedBar] = useState(null);
+  const [loading, setLoading] = useState(false); // 결과 기다리는 state
+  const [randomIcon, setRandomIcon] = useState(null); // 랜덤 아이콘 state
 
   useEffect(() => {
     if (randomSeed === 0) return;
 
+    setLoading(true);
+
+      const iconInterval = setInterval(() => {
+        const randomIndex = Math.floor(Math.random() * icons.length);
+        setRandomIcon(icons[randomIndex]);
+      }, 500);
+
+    const randomIdx = Math.floor(Math.random() * icons.length);
+    setRandomIcon(icons[randomIdx]);
+
     if (filteredData.length === 0) {
       setDisplayedBar(null);
+      setLoading(false);
       onSpinEnd && onSpinEnd();
       return;
     }
 
     let currentCount = 0;
-    const maxShuffles = 20;
+    const maxShuffles = 18; // 20회는 좀 많은거 같고 15회는 너무 적은거 같아서 18회
     let currentDelay = 50;
     let timeoutId = null;
 
@@ -51,6 +64,8 @@ const BarList = ({
         const finalIndex = Math.floor(randomSeed * filteredData.length);
         setDisplayedBar(filteredData[finalIndex]);
 
+        setLoading(false);
+        
         confetti({
           particleCount: 150,
           spread: 70,
@@ -67,9 +82,17 @@ const BarList = ({
 
     return () => {
       clearInterval(timeoutId);
+      clearInterval(iconInterval);
       confetti.reset();
     };
   }, [randomSeed, filteredData]);
+
+  if (loading) {
+    return <Container style={{ fontSize: "40px" }}>
+      <Icon>{randomIcon}</Icon>
+      오늘의 술집은?
+    </Container>
+  }
 
   if (!displayedBar && filteredData.length === 0) {
     return (
@@ -133,12 +156,15 @@ const BarList = ({
 export default BarList;
 
 const Container = styled.div`
+  font-weight: bold;
   width: 100%;
   max-width: 700px;
   padding: 20px;
   background-color: #f8f8f8;
   border-radius: 10px;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
   display: flex;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
@@ -199,3 +225,36 @@ const MapBtn = styled.a`
     height: 34px;
   }
 `;
+
+const Icon = styled.div`
+  font-size: 80px;
+  margin-bottom: 12px;
+`;
+
+const icons = [
+  "🍕",
+  "🍔",
+  "🍿",
+  "🌭", 
+  "🥓", 
+  "🥪", 
+  "🌯", 
+  "🍗", 
+  "🥟", 
+  "🍥", 
+  "🍢", 
+  "🥘", 
+  "🍲", 
+  "🫕", 
+  "🧃", 
+  "☕", 
+  "🍵", 
+  "🍾", 
+  "🍷", 
+  "🍸",
+  "🍹", 
+  "🍺", 
+  "🍻", 
+  "🥂", 
+  "🍽️",
+];
