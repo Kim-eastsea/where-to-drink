@@ -1,8 +1,139 @@
 import styled from "@emotion/styled";
 import MOCK_DATA from "../constant/mock";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import confetti from "canvas-confetti";
+import { Wheel } from "react-custom-roulette";
 
+// 룰렛 게임 컴포넌트
+const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
+  const rouletteData = useMemo(() => {
+    const colors = ["#f55e6b", "#54a4dd", "#f5a623", "#8ef797", "#b78eff"];
+    return data.map((bar, index) => ({
+      option: bar.name.length > 7 ? bar.name.substring(0, 6) + ".." : bar.name,
+      style: {
+        backgroundColor: colors[index % colors.length],
+        textColor: "white",
+      },
+    }));
+  }, [data]);
+
+  const [mustSpin, setMustSpin] = useState(false);
+  const [prizeNumber, setPrizeNumber] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+  const [finalBar, setFinalBar] = useState(null);
+
+  const audioRef = useRef(new Audio("/sound/roulette.mp3"));
+
+  useEffect(() => {
+    if (randomSeed === 0 || data.length === 0) return;
+
+    const timer = setTimeout(() => {
+      const newPrizeNumber = Math.floor(randomSeed * data.length);
+      setPrizeNumber(newPrizeNumber);
+
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch((e) => console.log("Sound play error:", e));
+
+      setMustSpin(true);
+    }, 50);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleStopSpinning = () => {
+    setMustSpin(false);
+
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+
+    if (data[prizeNumber]) {
+      setFinalBar(data[prizeNumber]);
+      setShowResult(true);
+
+      // 파티클 효과
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#f55e6b", "#54a4dd", "#f5a623", "#ffffff", "#ffd700"],
+      });
+    }
+
+    if (onSpinEnd) onSpinEnd();
+  };
+
+  // 결과 화면
+  if (showResult && finalBar) {
+    return (
+      <Container>
+        <RestaurantItem>
+          <img src={finalBar.img_url} alt={finalBar.name} />
+          <h3>{finalBar.name}</h3>
+          {language === "Kor" ? (
+            <p>
+              {finalBar.kor_loc} | {finalBar.kor_mood.join(", ")}
+              <br />
+              {finalBar.kor_food.join(", ")}
+              <br />
+              <MapBtn
+                href={finalBar.web_link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/img/navermap.png" alt="네이버지도" />
+              </MapBtn>
+              <br />
+              <span>{finalBar.kor_hashtag.join(" ")}</span>
+            </p>
+          ) : (
+            <p>
+              {finalBar.eng_loc} | {finalBar.eng_mood.join(", ")}
+              <br />
+              {finalBar.eng_food.join(", ")}
+              <br />
+              <MapBtn
+                href={finalBar.web_link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/img/navermap.png" alt="네이버지도" />
+              </MapBtn>
+              <br />
+              <span>{finalBar.eng_hashtag.join(" ")}</span>
+            </p>
+          )}
+        </RestaurantItem>
+      </Container>
+    );
+  }
+
+  // 룰렛 화면
+  return (
+    <Container>
+      <WheelContainer>
+        <Wheel
+          mustStartSpinning={mustSpin}
+          prizeNumber={prizeNumber}
+          data={rouletteData}
+          onStopSpinning={handleStopSpinning}
+          backgroundColors={["#3e3e3e", "#df3428"]}
+          textColors={["#ffffff"]}
+          outerBorderColor="#333"
+          outerBorderWidth={5}
+          innerRadius={20}
+          innerBorderColor="#333"
+          innerBorderWidth={0}
+          radiusLineColor="#dedede"
+          radiusLineWidth={1}
+          fontSize={16}
+          spinDuration={0.6}
+        />
+      </WheelContainer>
+    </Container>
+  );
+};
+
+// 메인 컴포넌트: 필터링, 자식 호출
 const BarList = ({
   keyword1,
   keyword2,
@@ -11,6 +142,7 @@ const BarList = ({
   randomSeed,
   onSpinEnd,
 }) => {
+  // 필터링 로직
   const filteredData = useMemo(() => {
     return MOCK_DATA.filter((bar) => {
       const matchLocation = keyword1 === "전체" || bar.kor_loc === keyword1;
@@ -23,55 +155,14 @@ const BarList = ({
     });
   }, [keyword1, keyword2, keyword3]);
 
-  const [displayedBar, setDisplayedBar] = useState(null);
-
+  // 데이터가 없을 때 표시
   useEffect(() => {
-    if (randomSeed === 0) return;
-
-    if (filteredData.length === 0) {
-      setDisplayedBar(null);
-      onSpinEnd && onSpinEnd();
-      return;
+    if (filteredData.length === 0 && onSpinEnd) {
+      onSpinEnd();
     }
+  }, [filteredData, onSpinEnd]);
 
-    let currentCount = 0;
-    const maxShuffles = 20;
-    let currentDelay = 50;
-    let timeoutId = null;
-
-    const shuffle = () => {
-      const tempIndex = Math.floor(Math.random() * MOCK_DATA.length);
-      setDisplayedBar(MOCK_DATA[tempIndex]);
-      currentCount++;
-
-      if (currentCount < maxShuffles) {
-        currentDelay += currentCount * 2;
-        timeoutId = setTimeout(shuffle, currentDelay);
-      } else {
-        const finalIndex = Math.floor(randomSeed * filteredData.length);
-        setDisplayedBar(filteredData[finalIndex]);
-
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ["#f55e6b", "#54a4dd", "#f5a623", "#ffffff", "#ffd700"],
-        });
-        if (onSpinEnd) {
-          onSpinEnd();
-        }
-      }
-    };
-
-    shuffle();
-
-    return () => {
-      clearInterval(timeoutId);
-      confetti.reset();
-    };
-  }, [randomSeed, filteredData]);
-
-  if (!displayedBar && filteredData.length === 0) {
+  if (filteredData.length === 0) {
     return (
       <EmptyMessage>
         {language === "Kor"
@@ -80,53 +171,18 @@ const BarList = ({
       </EmptyMessage>
     );
   }
-  if (!displayedBar) {
-    return null;
-  }
+
+  // 버튼 누를 때마다 randomSeed 변경 -> uniqueKey 생성
+  const uniqueKey = `${keyword1}-${keyword2}-${keyword3}-${randomSeed}`;
 
   return (
-    <Container>
-      <RestaurantItem key={displayedBar.id}>
-        <img src={displayedBar.img_url} />
-        <h3>{displayedBar.name}</h3>
-        {language === "Kor" ? (
-          <p>
-            {displayedBar.kor_loc} | {displayedBar.kor_mood.join(", ")}
-            <br />
-            {displayedBar.kor_food.join(", ")}
-            <br />
-            {
-              // 링크 추가 (클릭하면 바로 사이트로 이동)
-            }
-            <MapBtn
-              href={displayedBar.web_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/img/navermap.png" alt="네이버지도" />
-            </MapBtn>
-            <br />
-            <span>{displayedBar.kor_hashtag.join(" ")}</span>
-          </p>
-        ) : (
-          <p>
-            {displayedBar.eng_loc} | {displayedBar.eng_mood.join(", ")}
-            <br />
-            {displayedBar.eng_food.join(", ")}
-            <br />
-            <MapBtn
-              href={displayedBar.web_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/img/navermap.png" alt="네이버지도" />
-            </MapBtn>
-            <br />
-            <span>{displayedBar.eng_hashtag.join(" ")}</span>
-          </p>
-        )}
-      </RestaurantItem>
-    </Container>
+    <RouletteGame
+      key={uniqueKey}
+      data={filteredData}
+      language={language}
+      randomSeed={randomSeed}
+      onSpinEnd={onSpinEnd}
+    />
   );
 };
 
@@ -140,8 +196,17 @@ const Container = styled.div`
   border-radius: 10px;
   justify-content: center;
   display: flex;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
+  min-height: 400px;
+`;
+
+const WheelContainer = styled.div`
+  transform: scale(0.8);
+  @media (max-width: 500px) {
+    transform: scale(0.65);
+  }
 `;
 
 const RestaurantItem = styled.div`
@@ -154,12 +219,32 @@ const RestaurantItem = styled.div`
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  animation: popUp 0.5s ease-out;
+
+  @keyframes popUp {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
   img {
     height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
   }
   h3 {
     margin-bottom: 5px;
-    font-size: 1.2em;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 15px;
   }
   p {
     color: #666;
@@ -176,6 +261,7 @@ const EmptyMessage = styled.div`
   text-align: center;
   color: #888;
   margin-top: 20px;
+  padding: 50px;
 `;
 
 const MapBtn = styled.a`
