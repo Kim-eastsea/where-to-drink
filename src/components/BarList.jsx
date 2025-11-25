@@ -7,57 +7,106 @@ import { Wheel } from "react-custom-roulette";
 // 룰렛 게임 컴포넌트
 const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
   const rouletteData = useMemo(() => {
-    const colors = ["#f55e6b", "#54a4dd", "#f5a623", "#8ef797", "#b78eff"];
-    return data.map((bar, index) => ({
-      option: bar.name.length > 7 ? bar.name.substring(0, 6) + ".." : bar.name,
+    const colors = ["#ff7272", "#77c6ff", "#ffd084", "#71ff9c", "#e2beff"];
+    return Array.from({ length: 25 }).map((_, index) => ({
+      option: "",
       style: {
         backgroundColor: colors[index % colors.length],
         textColor: "white",
       },
     }));
-  }, [data]);
+  }, []);
 
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
   const [showResult, setShowResult] = useState(false);
   const [finalBar, setFinalBar] = useState(null);
 
-  const audioRef = useRef(new Audio("/sound/roulette.mp3"));
+  const finalResultRef = useRef(null);
+
+  // 오디오 객체
+  const audioRef = useRef(null);
+  useEffect(() => {
+    audioRef.current = new Audio("/sound/roulette.mp3");
+  }, []);
+
+  const isGameFinishedRef = useRef(false);
+  const startupTimerRef = useRef(null);
 
   useEffect(() => {
     if (randomSeed === 0 || data.length === 0) return;
 
-    const timer = setTimeout(() => {
-      const newPrizeNumber = Math.floor(randomSeed * data.length);
-      setPrizeNumber(newPrizeNumber);
+    confetti.reset();
+    isGameFinishedRef.current = false;
 
-      audioRef.current.currentTime = 0;
-      audioRef.current.play().catch((e) => console.log("Sound play error:", e));
+    const realPrizeIndex = Math.floor(randomSeed * data.length);
+    finalResultRef.current = data[realPrizeIndex];
+
+    const visualPrizeIndex = Math.floor(Math.random() * 25);
+
+    startupTimerRef.current = setTimeout(() => {
+      if (isGameFinishedRef.current) return;
+
+      setPrizeNumber(visualPrizeIndex);
+
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current
+          .play()
+          .catch((e) => console.log("Sound play error:", e));
+      }
 
       setMustSpin(true);
     }, 50);
 
-    return () => clearTimeout(timer);
+    return () => {
+      if (startupTimerRef.current) clearTimeout(startupTimerRef.current);
+
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      confetti.reset();
+    };
   }, []);
 
   const handleStopSpinning = () => {
-    setMustSpin(false);
+    if (isGameFinishedRef.current) return;
 
-    audioRef.current.pause();
-    audioRef.current.currentTime = 0;
+    finishGame();
+  };
 
-    if (data[prizeNumber]) {
-      setFinalBar(data[prizeNumber]);
-      setShowResult(true);
+  // 스킵 기능
+  const handleSkip = () => {
+    if (isGameFinishedRef.current) return;
 
-      // 파티클 효과
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ["#f55e6b", "#54a4dd", "#f5a623", "#ffffff", "#ffd700"],
-      });
+    if (startupTimerRef.current) {
+      clearTimeout(startupTimerRef.current);
     }
+
+    setMustSpin(false);
+    finishGame();
+  };
+
+  // 게임 종료 및 결과 표시 처리
+  const finishGame = () => {
+    isGameFinishedRef.current = true;
+
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+
+    setFinalBar(finalResultRef.current);
+    setShowResult(true);
+
+    // 파티클 효과
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ["#f55e6b", "#54a4dd", "#f5a623", "#ffffff", "#ffd700"],
+    });
 
     if (onSpinEnd) onSpinEnd();
   };
@@ -109,7 +158,7 @@ const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
 
   // 룰렛 화면
   return (
-    <Container>
+    <Container onClick={handleSkip} style={{ cursor: "pointer" }}>
       <WheelContainer>
         <Wheel
           mustStartSpinning={mustSpin}
@@ -119,16 +168,19 @@ const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
           backgroundColors={["#3e3e3e", "#df3428"]}
           textColors={["#ffffff"]}
           outerBorderColor="#333"
-          outerBorderWidth={5}
-          innerRadius={20}
+          outerBorderWidth={3}
+          innerRadius={15}
           innerBorderColor="#333"
           innerBorderWidth={0}
-          radiusLineColor="#dedede"
-          radiusLineWidth={1}
+          radiusLineColor="transparent"
+          radiusLineWidth={0}
           fontSize={16}
-          spinDuration={0.6}
+          spinDuration={0.5}
         />
       </WheelContainer>
+      <SkipText>
+        {language === "Kor" ? " 터치해서 결과 바로보기" : " Tap to Skip"}
+      </SkipText>
     </Container>
   );
 };
@@ -200,12 +252,41 @@ const Container = styled.div`
   align-items: center;
   gap: 20px;
   min-height: 400px;
+  position: relative;
 `;
 
 const WheelContainer = styled.div`
   transform: scale(0.8);
+  transition: transform 0.2s;
+
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.1);
+
   @media (max-width: 500px) {
     transform: scale(0.65);
+  }
+
+  &:active {
+    transform: scale(0.78);
+  }
+`;
+
+const SkipText = styled.p`
+  color: #888;
+  font-size: 0.9rem;
+  animation: blink 1.5s infinite;
+
+  @keyframes blink {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
   }
 `;
 
