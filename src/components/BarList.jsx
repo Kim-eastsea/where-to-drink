@@ -1,8 +1,191 @@
 import styled from "@emotion/styled";
 import MOCK_DATA from "../constant/mock";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import confetti from "canvas-confetti";
+import { Wheel } from "react-custom-roulette";
 
+// 룰렛 게임 컴포넌트
+const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
+  const rouletteData = useMemo(() => {
+    const colors = ["#ff7272", "#77c6ff", "#ffd084", "#71ff9c", "#e2beff"];
+    return Array.from({ length: 25 }).map((_, index) => ({
+      option: "",
+      style: {
+        backgroundColor: colors[index % colors.length],
+        textColor: "white",
+      },
+    }));
+  }, []);
+
+  const [mustSpin, setMustSpin] = useState(false);
+  const [prizeNumber, setPrizeNumber] = useState(0);
+  const [showResult, setShowResult] = useState(false);
+  const [finalBar, setFinalBar] = useState(null);
+
+  const finalResultRef = useRef(null);
+
+  // 오디오 객체
+  const audioRef = useRef(null);
+  useEffect(() => {
+    audioRef.current = new Audio("/sound/roulette.mp3");
+  }, []);
+
+  const isGameFinishedRef = useRef(false);
+  const startupTimerRef = useRef(null);
+
+  useEffect(() => {
+    if (randomSeed === 0 || data.length === 0) return;
+
+    confetti.reset();
+    isGameFinishedRef.current = false;
+
+    const realPrizeIndex = Math.floor(randomSeed * data.length);
+    finalResultRef.current = data[realPrizeIndex];
+
+    const visualPrizeIndex = Math.floor(Math.random() * 25);
+
+    startupTimerRef.current = setTimeout(() => {
+      if (isGameFinishedRef.current) return;
+
+      setPrizeNumber(visualPrizeIndex);
+
+      if (audioRef.current) {
+        audioRef.current.currentTime = 0;
+        audioRef.current
+          .play()
+          .catch((e) => console.log("Sound play error:", e));
+      }
+
+      setMustSpin(true);
+    }, 50);
+
+    return () => {
+      if (startupTimerRef.current) clearTimeout(startupTimerRef.current);
+
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
+      confetti.reset();
+    };
+  }, []);
+
+  const handleStopSpinning = () => {
+    if (isGameFinishedRef.current) return;
+
+    finishGame();
+  };
+
+  // 스킵 기능
+  const handleSkip = () => {
+    if (isGameFinishedRef.current) return;
+
+    if (startupTimerRef.current) {
+      clearTimeout(startupTimerRef.current);
+    }
+
+    setMustSpin(false);
+    finishGame();
+  };
+
+  // 게임 종료 및 결과 표시 처리
+  const finishGame = () => {
+    isGameFinishedRef.current = true;
+
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+
+    setFinalBar(finalResultRef.current);
+    setShowResult(true);
+
+    // 파티클 효과
+    confetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ["#f55e6b", "#54a4dd", "#f5a623", "#ffffff", "#ffd700"],
+    });
+
+    if (onSpinEnd) onSpinEnd();
+  };
+
+  // 결과 화면
+  if (showResult && finalBar) {
+    return (
+      <Container>
+        <RestaurantItem>
+          <img src={finalBar.img_url} alt={finalBar.name} />
+          <h3>{finalBar.name}</h3>
+          {language === "Kor" ? (
+            <p>
+              {finalBar.kor_loc} | {finalBar.kor_mood.join(", ")}
+              <br />
+              {finalBar.kor_food.join(", ")}
+              <br />
+              <MapBtn
+                href={finalBar.web_link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/img/navermap.png" alt="네이버지도" />
+              </MapBtn>
+              <br />
+              <span>{finalBar.kor_hashtag.join(" ")}</span>
+            </p>
+          ) : (
+            <p>
+              {finalBar.eng_loc} | {finalBar.eng_mood.join(", ")}
+              <br />
+              {finalBar.eng_food.join(", ")}
+              <br />
+              <MapBtn
+                href={finalBar.web_link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/img/navermap.png" alt="네이버지도" />
+              </MapBtn>
+              <br />
+              <span>{finalBar.eng_hashtag.join(" ")}</span>
+            </p>
+          )}
+        </RestaurantItem>
+      </Container>
+    );
+  }
+
+  // 룰렛 화면
+  return (
+    <Container onClick={handleSkip} style={{ cursor: "pointer" }}>
+      <WheelContainer>
+        <Wheel
+          mustStartSpinning={mustSpin}
+          prizeNumber={prizeNumber}
+          data={rouletteData}
+          onStopSpinning={handleStopSpinning}
+          backgroundColors={["#3e3e3e", "#df3428"]}
+          textColors={["#ffffff"]}
+          outerBorderColor="#333"
+          outerBorderWidth={3}
+          innerRadius={15}
+          innerBorderColor="#333"
+          innerBorderWidth={0}
+          radiusLineColor="transparent"
+          radiusLineWidth={0}
+          fontSize={16}
+          spinDuration={0.5}
+        />
+      </WheelContainer>
+      <SkipText>
+        {language === "Kor" ? " 터치해서 결과 바로보기" : " Tap to Skip"}
+      </SkipText>
+    </Container>
+  );
+};
+
+// 메인 컴포넌트: 필터링, 자식 호출
 const BarList = ({
   keyword1,
   keyword2,
@@ -11,6 +194,7 @@ const BarList = ({
   randomSeed,
   onSpinEnd,
 }) => {
+  // 필터링 로직
   const filteredData = useMemo(() => {
     return MOCK_DATA.filter((bar) => {
       const matchLocation = keyword1 === "전체" || bar.kor_loc === keyword1;
@@ -24,31 +208,18 @@ const BarList = ({
   }, [keyword1, keyword2, keyword3]);
 
   const [displayedBar, setDisplayedBar] = useState(null);
-  const [loading, setLoading] = useState(false); // 결과 기다리는 state
-  const [randomIcon, setRandomIcon] = useState(null); // 랜덤 아이콘 state
 
   useEffect(() => {
     if (randomSeed === 0) return;
 
-    setLoading(true);
-
-      const iconInterval = setInterval(() => {
-        const randomIndex = Math.floor(Math.random() * icons.length);
-        setRandomIcon(icons[randomIndex]);
-      }, 500);
-
-    const randomIdx = Math.floor(Math.random() * icons.length);
-    setRandomIcon(icons[randomIdx]);
-
     if (filteredData.length === 0) {
       setDisplayedBar(null);
-      setLoading(false);
       onSpinEnd && onSpinEnd();
       return;
     }
 
     let currentCount = 0;
-    const maxShuffles = 18; // 20회는 좀 많은거 같고 15회는 너무 적은거 같아서 18회
+    const maxShuffles = 20;
     let currentDelay = 50;
     let timeoutId = null;
 
@@ -64,8 +235,6 @@ const BarList = ({
         const finalIndex = Math.floor(randomSeed * filteredData.length);
         setDisplayedBar(filteredData[finalIndex]);
 
-        setLoading(false);
-        
         confetti({
           particleCount: 150,
           spread: 70,
@@ -82,19 +251,11 @@ const BarList = ({
 
     return () => {
       clearInterval(timeoutId);
-      clearInterval(iconInterval);
       confetti.reset();
     };
   }, [randomSeed, filteredData]);
 
-  if (loading) {
-    return <Container style={{ fontSize: "40px" }}>
-      <Icon>{randomIcon}</Icon>
-      오늘의 술집은?
-    </Container>
-  }
-
-  if (!displayedBar && filteredData.length === 0) {
+  if (filteredData.length === 0) {
     return (
       <EmptyMessage>
         {language === "Kor"
@@ -103,53 +264,18 @@ const BarList = ({
       </EmptyMessage>
     );
   }
-  if (!displayedBar) {
-    return null;
-  }
+
+  // 버튼 누를 때마다 randomSeed 변경 -> uniqueKey 생성
+  const uniqueKey = `${keyword1}-${keyword2}-${keyword3}-${randomSeed}`;
 
   return (
-    <Container>
-      <RestaurantItem key={displayedBar.id}>
-        <img src={displayedBar.img_url} />
-        <h3>{displayedBar.name}</h3>
-        {language === "Kor" ? (
-          <p>
-            {displayedBar.kor_loc} | {displayedBar.kor_mood.join(", ")}
-            <br />
-            {displayedBar.kor_food.join(", ")}
-            <br />
-            {
-              // 링크 추가 (클릭하면 바로 사이트로 이동)
-            }
-            <MapBtn
-              href={displayedBar.web_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/img/navermap.png" alt="네이버지도" />
-            </MapBtn>
-            <br />
-            <span>{displayedBar.kor_hashtag.join(" ")}</span>
-          </p>
-        ) : (
-          <p>
-            {displayedBar.eng_loc} | {displayedBar.eng_mood.join(", ")}
-            <br />
-            {displayedBar.eng_food.join(", ")}
-            <br />
-            <MapBtn
-              href={displayedBar.web_link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/img/navermap.png" alt="네이버지도" />
-            </MapBtn>
-            <br />
-            <span>{displayedBar.eng_hashtag.join(" ")}</span>
-          </p>
-        )}
-      </RestaurantItem>
-    </Container>
+    <RouletteGame
+      key={uniqueKey}
+      data={filteredData}
+      language={language}
+      randomSeed={randomSeed}
+      onSpinEnd={onSpinEnd}
+    />
   );
 };
 
@@ -166,8 +292,46 @@ const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   display: flex;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  flex-direction: column;
+  align-items: center;
   gap: 20px;
+  min-height: 400px;
+  position: relative;
+`;
+
+const WheelContainer = styled.div`
+  transform: scale(0.8);
+  transition: transform 0.2s;
+
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 500px) {
+    transform: scale(0.65);
+  }
+
+  &:active {
+    transform: scale(0.78);
+  }
+`;
+
+const SkipText = styled.p`
+  color: #888;
+  font-size: 0.9rem;
+  animation: blink 1.5s infinite;
+
+  @keyframes blink {
+    0% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.5;
+    }
+  }
 `;
 
 const RestaurantItem = styled.div`
@@ -180,12 +344,32 @@ const RestaurantItem = styled.div`
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  animation: popUp 0.5s ease-out;
+
+  @keyframes popUp {
+    0% {
+      transform: scale(0.5);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
   img {
     height: 300px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
   }
   h3 {
     margin-bottom: 5px;
-    font-size: 1.2em;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 15px;
   }
   p {
     color: #666;
@@ -202,6 +386,7 @@ const EmptyMessage = styled.div`
   text-align: center;
   color: #888;
   margin-top: 20px;
+  padding: 50px;
 `;
 
 const MapBtn = styled.a`
