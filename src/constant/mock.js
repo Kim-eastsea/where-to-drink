@@ -692,20 +692,7 @@ const MOCK_DATA = [
       web_link: "https://map.naver.com/p/entry/place/38365272?c=15.00,0,0,0,dh",
       img_url: "/img/b_Main/9꼬지포차.jpg",
   },
-  {
-      id: 40,
-      name: "낭만상회",
-      kor_loc: "정문",
-      kor_food: ["한식"],
-      kor_mood: ["지인"],
-      kor_hashtag: [],
-      eng_loc: "Main Gate",
-      eng_food: ["Korean"],
-      eng_mood: ["Friends"],
-      eng_hashtag: [],
-      web_link: "https://map.naver.com/p/entry/place/1162274841?c=15.00,0,0,0,dh",
-      img_url: "/img/b_Main/10낭만상회.jpg",
-  },
+  // id: 40 낭만상회 삭제
   {
       id: 41,
       name: "족불장군",
