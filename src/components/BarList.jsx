@@ -207,53 +207,12 @@ const BarList = ({
     });
   }, [keyword1, keyword2, keyword3]);
 
-  const [displayedBar, setDisplayedBar] = useState(null);
-
+  // 데이터가 없을 때 표시
   useEffect(() => {
-    if (randomSeed === 0) return;
-
-    if (filteredData.length === 0) {
-      setDisplayedBar(null);
-      onSpinEnd && onSpinEnd();
-      return;
+    if (filteredData.length === 0 && onSpinEnd) {
+      onSpinEnd();
     }
-
-    let currentCount = 0;
-    const maxShuffles = 20;
-    let currentDelay = 50;
-    let timeoutId = null;
-
-    const shuffle = () => {
-      const tempIndex = Math.floor(Math.random() * MOCK_DATA.length);
-      setDisplayedBar(MOCK_DATA[tempIndex]);
-      currentCount++;
-
-      if (currentCount < maxShuffles) {
-        currentDelay += currentCount * 2;
-        timeoutId = setTimeout(shuffle, currentDelay);
-      } else {
-        const finalIndex = Math.floor(randomSeed * filteredData.length);
-        setDisplayedBar(filteredData[finalIndex]);
-
-        confetti({
-          particleCount: 150,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ["#f55e6b", "#54a4dd", "#f5a623", "#ffffff", "#ffd700"],
-        });
-        if (onSpinEnd) {
-          onSpinEnd();
-        }
-      }
-    };
-
-    shuffle();
-
-    return () => {
-      clearInterval(timeoutId);
-      confetti.reset();
-    };
-  }, [randomSeed, filteredData]);
+  }, [filteredData, onSpinEnd]);
 
   if (filteredData.length === 0) {
     return (
