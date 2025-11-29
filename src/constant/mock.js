@@ -12,7 +12,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#MyPick", "#SpicyCreamPasta", "#GoodVibes"],
     web_link: "https://map.naver.com/p/entry/place/1956104979?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/1취향.jpg",
+    img_url: "/img/a_North/1취향.jpg",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#2ndPick", "#PollackRoeCreamUdon", "#NewPub"],
     web_link: "https://map.naver.com/p/entry/place/2052226947?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/2와비사비.jpg",
+    img_url: "/img/a_North/2와비사비.jpg",
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const MOCK_DATA = [
       "#Spacious",
     ],
     web_link: "https://map.naver.com/p/entry/place/1342206450?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/3한라맥주.jpg",
+    img_url: "/img/a_North/3한라맥주.jpg",
   },
   {
     id: 4,
@@ -67,7 +67,7 @@ const MOCK_DATA = [
       "#TastyMungBeanPancake",
     ],
     web_link: "https://map.naver.com/p/entry/place/335604916?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/4사군자민속촌.jpg",
+    img_url: "/img/a_North/4사군자민속촌.jpg",
   },
   {
     id: 5,
@@ -81,7 +81,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends", "Couples"],
     eng_hashtag: ["#DarkAtmosphere", "#FreeCheeseSnacks", "#SpoonPizza"],
     web_link: "https://map.naver.com/p/entry/place/36175140?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/5데얼스.jpg",
+    img_url: "/img/a_North/5데얼스.jpg",
   },
   {
     id: 6,
@@ -96,7 +96,7 @@ const MOCK_DATA = [
     eng_hashtag: ["#GoodVibes", "#IzakayaStyle"],
     web_link:
       "https://map.naver.com/p/entry/place/1638911029?c=15.00,0,0,0,adh",
-    img_url: "/img/a_Noth/6오뉴월.jpg",
+    img_url: "/img/a_North/6오뉴월.jpg",
   },
   {
     id: 7,
@@ -110,7 +110,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes", "#IzakayaStyle", "#Yakisoba"],
     web_link: "https://map.naver.com/p/entry/place/1468664455?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/7사심.jpg",
+    img_url: "/img/a_North/7사심.jpg",
   },
   {
     id: 8,
@@ -124,7 +124,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends", "Couples"],
     eng_hashtag: ["#GoodForEvents", "#ShabuShabu", "#TastyFreeSnacks"],
     web_link: "https://map.naver.com/p/entry/place/1555072378?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/8희희.jpg",
+    img_url: "/img/a_North/8희희.jpg",
   },
   {
     id: 9,
@@ -138,7 +138,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#GoodForBaseball", "#GoodForEvents", "#ChickenDishes"],
     web_link: "https://map.naver.com/p/entry/place/1234772562?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/9구구포차.jpg",
+    img_url: "/img/a_North/9구구포차.jpg",
   },
   {
     id: 10,
@@ -152,7 +152,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#TastyDishes", "#GroupsOf10OK", "#GoodVibes"],
     web_link: "https://map.naver.com/p/entry/place/1519176028?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/10정든밤.jpg",
+    img_url: "/img/a_North/10정든밤.jpg",
   },
   {
     id: 11,
@@ -166,7 +166,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#SweetPotatoCreamRiceWine", "#GoodVibes"],
     web_link: "https://map.naver.com/p/entry/place/31663892?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/11정선생.jpg",
+    img_url: "/img/a_North/11정선생.jpg",
   },
   {
     id: 12,
@@ -180,7 +180,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Group Dating"],
     eng_hashtag: ["#PrivateRoom"],
     web_link: "https://map.naver.com/p/entry/place/1295630060?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/12큐브2.jpg",
+    img_url: "/img/a_North/12큐브2.jpg",
   },
   {
     id: 13,
@@ -194,7 +194,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Group Dating"],
     eng_hashtag: ["#PrivateRoom"],
     web_link: "https://map.naver.com/p/entry/place/1943296021?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/13청춘1.jpg",
+    img_url: "/img/a_North/13청춘1.jpg",
   },
   {
     id: 14,
@@ -208,7 +208,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#HalfHalfSeasonedGrill", "#GoodForEvents", "#ScreenAndMic"],
     web_link: "https://map.naver.com/p/entry/place/1667063210?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/14사랑과 평화.jpg",
+    img_url: "/img/a_North/14사랑과 평화.jpg",
   },
   {
     id: 15,
@@ -222,7 +222,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#Basement", "#GoodForEvents"],
     web_link: "https://map.naver.com/p/entry/place/1346947035?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/15홍등연화.jpg",
+    img_url: "/img/a_North/15홍등연화.jpg",
   },
   {
     id: 16,
@@ -236,7 +236,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#SeparateFloors(2nd,3rd)"],
     web_link: "https://map.naver.com/p/entry/place/1238323405?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/16이판사판.jpg",
+    img_url: "/img/a_North/16이판사판.jpg",
   },
   {
     id: 17,
@@ -250,7 +250,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#ChickenDishes", "#GoodForEvents", "#ChickenFeet"],
     web_link: "https://map.naver.com/p/entry/place/1699120034?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/17닭동가리.jpg",
+    img_url: "/img/a_North/17닭동가리.jpg",
   },
   {
     id: 18,
@@ -264,7 +264,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#BeefTartare", "#RawBeefSashimi"],
     web_link: "https://map.naver.com/p/entry/place/2047985103?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/18정육회.jpg",
+    img_url: "/img/a_North/18정육회.jpg",
   },
   {
     id: 19,
@@ -278,7 +278,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes"],
     web_link: "https://map.naver.com/p/entry/place/1051677608?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/19알비노.jpg",
+    img_url: "/img/a_North/19알비노.jpg",
   },
   {
     id: 20,
@@ -292,7 +292,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#HangoverSoup", "#LastStop", "#DrinkUntilMorning"],
     web_link: "https://map.naver.com/p/entry/place/1380357945?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/20다원국밥.jpg",
+    img_url: "/img/a_North/20다원국밥.jpg",
   },
   {
     id: 21,
@@ -306,7 +306,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#ChickenFeet"],
     web_link: "https://map.naver.com/p/entry/place/2060658035?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/21한신포차.jpg",
+    img_url: "/img/a_North/21한신포차.jpg",
   },
   {
     id: 22,
@@ -320,7 +320,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: ["#PancakeHouse"],
     web_link: "https://map.naver.com/p/entry/place/1757644998?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/22와다다다.jpg",
+    img_url: "/img/a_North/22와다다다.jpg",
   },
   {
     id: 23,
@@ -334,7 +334,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends", "Couples"],
     eng_hashtag: ["#GoodVibes"],
     web_link: "https://map.naver.com/p/entry/place/1771915294?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/23구르메.jpg",
+    img_url: "/img/a_North/23구르메.jpg",
   },
   {
     id: 24,
@@ -348,7 +348,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: ["#HoneyAppleRiceWine"],
     web_link: "https://map.naver.com/p/entry/place/1881732572?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/24세미나.jpg",
+    img_url: "/img/a_North/24세미나.jpg",
   },
   {
     id: 25,
@@ -362,7 +362,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: [],
     web_link: "https://map.naver.com/p/entry/place/35629412?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/25최군맥주.jpg",
+    img_url: "/img/a_North/25최군맥주.jpg",
   },
   {
     id: 26,
@@ -376,7 +376,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: [],
     web_link: "https://map.naver.com/p/entry/place/651069155?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/26더왕365퓨전포차.jpg",
+    img_url: "/img/a_North/26더왕365퓨전포차.jpg",
   },
   {
     id: 27,
@@ -390,7 +390,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes", "#MapoTofu"],
     web_link: "https://map.naver.com/p/entry/place/2046192198?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/27난탄.jpg",
+    img_url: "/img/a_North/27난탄.jpg",
   },
   {
     id: 28,
@@ -404,7 +404,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#LambSkewers"],
     web_link: "https://map.naver.com/p/entry/place/1045711079?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/28임가양꼬치.jpg",
+    img_url: "/img/a_North/28임가양꼬치.jpg",
   },
   {
     id: 29,
@@ -418,7 +418,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#LambSkewers"],
     web_link: "https://map.naver.com/p/entry/place/38378898?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/29파랑집.jpg",
+    img_url: "/img/a_North/29파랑집.jpg",
   },
   {
     id: 30,
@@ -432,7 +432,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#TastyDraftBeer"],
     web_link: "https://map.naver.com/p/entry/place/1036376759?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/30better.jpg",
+    img_url: "/img/a_North/30better.jpg",
   },
   {
     id: 58,
@@ -446,7 +446,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GreatValue"],
     web_link: "https://map.naver.com/p/entry/place/1879640085?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/31도깨비야시장.jpg",
+    img_url: "/img/a_North/31도깨비야시장.jpg",
   },
   {
     id: 59,
@@ -460,7 +460,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: ["#TastyKimchiUdon", "#FamiliarTaste"],
     web_link: "https://map.naver.com/p/entry/place/33920390?c=15.00,0,0,0,dh",
-    img_url: "/img/a_Noth/32투다리.jpg",
+    img_url: "/img/a_North/32투다리.jpg",
   },
   {
       id: 60,
@@ -474,7 +474,7 @@ const MOCK_DATA = [
       eng_mood: ["Friends", "Couples"],
       eng_hashtag: ["#GoodVibes"],
       web_link: "https://map.naver.com/p/entry/place/1201619852?c=15.00,0,0,0,dh",
-      img_url: "/img/a_Noth/33수리다비다.jpg",
+      img_url: "/img/a_North/33수리다비다.jpg",
   },
   {
       id: 61,
@@ -488,7 +488,7 @@ const MOCK_DATA = [
       eng_mood: ["Groups", "Friends"],
       eng_hashtag: ["#TastyGrilledMackerel"],
       web_link: "https://map.naver.com/p/entry/place/1795507489?c=15.00,0,0,0,dh",
-      img_url: "/img/a_Noth/34먹새통.jpg",
+      img_url: "/img/a_North/34먹새통.jpg",
   },
   {
       id: 62,
@@ -503,7 +503,7 @@ const MOCK_DATA = [
       eng_hashtag: ["#IzakayaStyle", "#TastyHighball"],
       web_link:
         "https://map.naver.com/p/entry/place/1275177142?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511250231&locale=ko&svcName=map_pcv5",
-      img_url: "/img/a_Noth/35이층술집.jpg",
+      img_url: "/img/a_North/35이층술집.jpg",
   },
   {
       id: 63,
@@ -518,7 +518,7 @@ const MOCK_DATA = [
       eng_hashtag: ["#OdenBar"],
       web_link:
         "https://map.naver.com/p/entry/place/2033979543?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511250230&locale=ko&svcName=map_pcv5",
-      img_url: "/img/a_Noth/36철길부산집.jpg",
+      img_url: "/img/a_North/36철길부산집.jpg",
   },
   {
       id: 64,
@@ -533,7 +533,7 @@ const MOCK_DATA = [
       eng_hashtag: ["#Burgers&cocktails"],
       web_link:
         "https://map.naver.com/p/search/%EC%8A%88%EA%B0%80%EC%A1%B0%EC%8A%A4/place/1656174373?c=15.00,0,0,0,dh&isCorrectAnswer=true&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511252226&locale=ko&svcName=map_pcv5&searchText=%EC%8A%88%EA%B0%80%EC%A1%B0%EC%8A%A4",
-      img_url: "/img/a_Noth/37슈가조스.jpg",
+      img_url: "/img/a_North/37슈가조스.jpg",
   },
   {
       id: 65,
@@ -548,7 +548,7 @@ const MOCK_DATA = [
       eng_hashtag: ["#Cocktails", "#Whiskey"],
       web_link:
         "https://map.naver.com/p/entry/place/2003983355?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511250229&locale=ko&svcName=map_pcv5",
-      img_url: "/img/a_Noth/38재재.jpg",
+      img_url: "/img/a_North/38재재.jpg",
   },
   {
       id: 66,
@@ -563,7 +563,7 @@ const MOCK_DATA = [
       eng_hashtag: ["#TastyDraftBeer", "#BringYourOwnSnacks"],
       web_link:
         "https://map.naver.com/p/entry/place/1957109700?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511250229&locale=ko&svcName=map_pcv5",
-      img_url: "/img/a_Noth/39잭스펍.jpg",
+      img_url: "/img/a_North/39잭스펍.jpg",
   },
   // --- 정문 (Main Gate) ---
   {

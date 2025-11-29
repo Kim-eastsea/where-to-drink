@@ -1,16 +1,245 @@
-# React + Vite
+<aside>
+💡
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+GitHub 레포지토리
 
-Currently, two official plugins are available:
+> https://github.com/Kim-eastsea/where-to-drink
+> 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+시연영상
 
-## React Compiler
+- 서비스 메인 화면
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+![image.png](attachment:82b020a9-1c3e-4bdf-9587-aac8139e9cd6:image.png)
 
-## Expanding the ESLint configuration
+![image.png](attachment:363f8915-385c-46ec-86a0-fe6258bf42eb:image.png)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- (영상 링크)
+</aside>
+
+## 🍺 어디서 마실래?
+
+> 언제나 맛있는 안주와 함께 술을 마시고 싶어하는 술꾼들을 위한, 
+오늘도 술집을 정하지못해 갈팡질팡하는 여러분들을 위한 랜덤 술집 추천 서비스
+쉽고 빠르게 오늘의 술집을 정해드립니다
+> 
+
+---
+
+## ✨ 프로젝트 개요
+
+**어디서 마실래?** 는 사용자의 취향에 맞는 필터로 쉽고 빠르게 술집을 랜덤으로 골라주는 서비스이다.
+
+회식, 지인과의 술자리,  커플끼리의 데이트, 또는 설레는 과팅을 위한 최적의 장소를 찾는 데에 적지 않은 시간을 들이고, 또 매번 새로운 안주, 새로운 술집을 찾는데 질려버려 항상 가던 곳만 가던 경험은 대학교 생활을 하면서 피할 수 없는 경험이다. 
+
+그런 비슷한 경험을 했던 학생들을 위해, 또 앞으로 그런 경험을 겪을 학생들 위해 서비스가 기획되었다. 이 서비스로 더 많은 술자리 시간이 확보되는 효과를 기대한다.
+
+---
+
+## 🎯 프로젝트 목표
+
+- 경북대 근처 술집이 낯선 사람들을 위해 취향에 맞게 쉽고 빠르게 술집을 고를 수 있도록 한다.
+- 술집을 고르는데 지친 사람들을 위해 술집을 고르는 데에 걸리는 시간을 절약할 수 있도록 한다.
+- 새로운 장소를 탐색을 하는데 가장 효율적인 서비스를 목표로 한다.
+
+---
+
+## 👤 팀 소개: 비정상회담
+
+- **팀 이름: 비정상회담**
+    - 전자 B반 3명과 컴학 1명으로 구성된 정상회담.
+    - 비정상뿐인 팀이기도 하다.
+
+---
+
+## 🧍 팀원 소개
+
+- **김동해: 팀 리더**
+    - 메인 프레임과 기능 개발
+- **김선호**
+    - 자잘한 기능 수정 및 개발, README 작성
+- **이겨레**
+    - 데이터 수집 및 라벨링
+- **임예린**
+    - 디자인, 발표 자료 제작
+
+---
+
+## ⚙️ 주요 기능
+
+1. **위치, 음식 종류, 목적에 따른 필터 선택**
+    - 북문, 정문, 쪽문의 큰 세 범위의 영역과 한식, 일식, 중식 등의 음식 종류, 그날 그날의 목적.
+    - 위의 큰 세 필터를 통해 취향에 따른 술집 선택의 폭을 제한한다.
+2. **필터에 따른 랜덤 선택**
+    - 사용자의 취향에 맞게 필터를 선택한 후 서비스를 실행하면 랜덤으로 선택한 필터에 부합하는 술집을 추천한다.
+3. **가게의 정보 및 확장성 제시**
+    - 술집의 사진, 가게 이름, 필터 키워드, 네이버 지도로 연결되는 하이퍼링크, 추가적 TMI를 담은 해시태그를 제시한다.
+4. **횟수 제한없는 재시도**
+    - 같은 필터 키워드에서도 여러번 제한없이 재시도 할 수 있다.
+    - 다양한 키워드의 조합으로 여러번 재시도 할 수 있도록 한다.
+
+---
+
+## 🔎 사용 기술
+
+- React
+- Javascript
+- HTML,
+- CSS
+
+---
+
+## 🌳 GitHub 레포지토리
+
+> https://github.com/Kim-eastsea/where-to-drink.git
+> 
+
+---
+
+## 📈 향후 발전
+
+- **별점 및 리뷰 시스템**
+    - 사용자끼리의 상호작용으로 가게 이용 경험을 공유
+- **디자인 및 사용자 경험 개선**
+    - 더욱 더 사용자 친화적인 UX/UI로 사용자 경험을 개선한다.
+    
+
+---
+
+# FE(FrontEnd)
+
+- 술집 랜덤 추천 서비스
+
+![image.png](attachment:ca5560ad-b8ba-425e-9101-bda61f4a5570:image.png)
+
+---
+
+## 🪛 주요 기능
+
+1. 필터 설정 및 검색
+    - 위치: 전체, 북문, 정문, 쪽문
+    - 음식: 한식, 양식, 일식, 중식, 혼합
+        - 대표 메뉴 또는 주 메뉴 기준으로 선정
+        - 혼합: 대표 메뉴를 특정할 수 없을 때 혼합으로 분류
+    - 목적: 회식, 지인, 커플 과팅
+        - 당일 술자리의 목적에 따라 수용 인원, 가게 분위기를 고려한 키워드 분류 및 선정
+    - 룰렛 실행 버튼
+        - 키워드 설정 후 버튼 클릭 시 랜덤으로 선택된 술집 제시
+        - 랜덤으로 돌아감을 표시하는 룰렛 애니메이션 재생
+        - 랜덤으로 정해지는 약 6초 간의 시간 동안 룰렛을 클릭하면 바로 선택된 술집 제시
+            - 시간을 전부 기다리지 않아도 빠르게 확인 가능
+2. 한/영 전환 버튼
+    - 기본적으로 한국어로 세팅
+    - 한/영 전환 버튼을 클릭하면 가게 이름을 제외한 모든 정보가 영어로 번역
+3. 선택된 술집의 정보 제시
+    - 가게의 내부 사진
+        - 가게의 전체적인 분위기를 한눈에 확인
+    - 가게의 이름
+    - 키워드
+        - 위치 | 목적
+        - 음식 종류
+    - 네이버 지도로 이동하는 하이퍼링크 (아이콘)
+    - 가게의 특별한 정보를 제시하는 해시태그
+4. 한 화면에서 모든 서비스를 실행 가능
+    - 가볍고 빠른 서비스를 목표로 했기에 첫 화면에서 직관적이고 쉬운 서비스 경험을 제공한다.
+
+---
+
+WHERE-TO-DRINK/
+├─public/
+│  ├─img/
+│  │  │  navermap.png                    # 네이버 지도 아이콘
+│  │  │  이미지없음.avif                     # 이미지없는 가게 임시 이미지
+│  │  │
+│  │  ├─a_North/                    # 키워드 - 북문의 가게 이미지
+│  │  │      10정든밤.jpg
+│  │  │      11정선생.jpg
+│  │  │      12큐브2.jpg
+│  │  │      13청춘1.jpg
+│  │  │      14사랑과 평화.jpg
+│  │  │      15홍등연화.jpg
+│  │  │      16이판사판.jpg
+│  │  │      17닭동가리.jpg
+│  │  │      18정육회.jpg
+│  │  │      19알비노.jpg
+│  │  │      1취향.jpg
+│  │  │      20다원국밥.jpg
+│  │  │      21한신포차.jpg
+│  │  │      22와다다다.jpg
+│  │  │      23구르메.jpg
+│  │  │      24세미나.jpg
+│  │  │      25최군맥주.jpg
+│  │  │      26더왕365퓨전포차.jpg
+│  │  │      27난탄.jpg
+│  │  │      28임가양꼬치.jpg
+│  │  │      29파랑집.jpg
+│  │  │      2와비사비.jpg
+│  │  │      30better.jpg
+│  │  │      31도깨비야시장.jpg
+│  │  │      32투다리.jpg
+│  │  │      33수리다비다.jpg
+│  │  │      34먹새통.jpg
+│  │  │      35이층술집.jpg
+│  │  │      36철길부산집.jpg
+│  │  │      37슈가조스.jpg
+│  │  │      38재재.jpg
+│  │  │      39잭스펍.jpg
+│  │  │      3한라맥주.jpg
+│  │  │      4사군자민속촌.jpg
+│  │  │      5데얼스.jpg
+│  │  │      6오뉴월.jpg
+│  │  │      7사심.jpg
+│  │  │      8희희.jpg
+│  │  │      9구구포차.jpg
+│  │  │      청춘2.jpg
+│  │  │      큐브1.jpg
+│  │  │
+│  │  ├─b_Main/                    # 키워드 - 정문의 가게 이미지
+│  │  │      11족불장군.jpg
+│  │  │      12경대이모.jpg
+│  │  │      13이웃집.jpg
+│  │  │      14뼈큰감자탕.jpg
+│  │  │      15만달포차.jpg
+│  │  │      16부자숯불막창곰장어아나고.jpg
+│  │  │      1이유있는 감자탕.jpg
+│  │  │      2배터지는 깐풍기.jpg
+│  │  │      3정문똥집.jpg
+│  │  │      4마라도 생굴구이.jpg
+│  │  │      5춘춘갈매기.jpg
+│  │  │      6황제뒷고기.jpg
+│  │  │      7천지삐까리.jpg
+│  │  │      8큰손 왕뼈다귀해장국.jpg
+│  │  │      9꼬지포차.jpg
+│  │  │
+│  │  └─c_Side/                    # 키워드 - 쪽문의 가게 이미지
+│  │          10통큰할머니순대국.jpg
+│  │          11회마을.jpg
+│  │          1통큰아저씨.jpg
+│  │          2쪽문분식.jpg
+│  │          3간식여행.jpg
+│  │          4yin바.jpg
+│  │          5더좀비.jpg
+│  │          6미운놈포차.jpg
+│  │          7Retro.jpg
+│  │          8썬더치킨.jpg
+│  │          9동대구회.jpg
+│  │
+│  └─sound/
+│          roulette.mp3                     # 룰렛 회전하는 사운드
+│
+└─src/
+│     App.jsx                    # 메인 애플리케이션
+│     main.jsx                    #  React 진입점
+│
+├─components/
+│      BarList.jsx                    # 메인 컴포넌트 (필터, 룰렛, 결과 화면)
+│      Header.jsx                    # 메인 제목과 한/영 전환 버튼 컴포넌트
+│      Keyword.jsx                    # 키워드 필터링과 검색 버튼 컴포넌트
+│      MainPage.jsx                    # 키워드 컴포넌트
+│
+├─constant/
+│      mock.js                    # 술집 리스트 데이터
+│
+└─styles/
+         reset.js                    # 초기 화면 세팅
+         typography.js                    # 폰트 및 디자인 컴포넌트
