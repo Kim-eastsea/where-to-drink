@@ -160,22 +160,22 @@
 
 ---
 
-where-to-drink/
-├── src/
-│   ├── components/
-│   │   ├── BarList.jsx         # 룰렛 및 결과 화면 (로직 포함)
-│   │   ├── Header.jsx          # 헤더 컴포넌트
-│   │   ├── Keyword.jsx       # 키워드 선택 및 리롤 버튼
-│   │   ├── MainPage.jsx     # BarList export
-│   ├── constant/
-│   │   ├── mock.js      # 데이터 정리
-│   ├── styles/
-│   │   ├── reset.js      # 전역 스타일 정의
-│   │   ├── typography.js      # 기본 글씨체
-│   ├── App.jsx                  # 메인 어플리케이션
-├── public/
-│   │   ├── a_North          # 키워드 - 북문 가게의 이미지
-│   │   ├── b_Main         # 키워드 - 정문 가게의 이미지
-│   │   ├── c_Side         # 키워드 - 쪽문 가게의 이미지
-│   ├── 이미지없음.avif
+where-to-drink/  
+├── src/  
+│   ├── components/  
+│   │   ├── BarList.jsx         # 룰렛 및 결과 화면 (로직 포함)  
+│   │   ├── Header.jsx          # 헤더 컴포넌트  
+│   │   ├── Keyword.jsx       # 키워드 선택 및 리롤 버튼  
+│   │   ├── MainPage.jsx     # BarList export  
+│   ├── constant/  
+│   │   ├── mock.js      # 데이터 정리  
+│   ├── styles/  
+│   │   ├── reset.js      # 전역 스타일 정의  
+│   │   ├── typography.js      # 기본 글씨체  
+│   ├── App.jsx                  # 메인 어플리케이션  
+├── public/  
+│   │   ├── a_North          # 키워드 - 북문 가게의 이미지  
+│   │   ├── b_Main         # 키워드 - 정문 가게의 이미지  
+│   │   ├── c_Side         # 키워드 - 쪽문 가게의 이미지  
+│   ├── 이미지없음.avif  
 │   ├── navermap.png
