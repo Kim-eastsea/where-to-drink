@@ -20,7 +20,7 @@
     
 - 영상 링크
     
-    https://youtu.be/4iYdaPhG9dM?si=N8-e9Mi_PL5O093j
+    [https://youtu.be/4iYdaPhG9dM?si=N8-e9Mi_PL5O093j](https://youtu.be/ba_SJT2HA4k)
     
 </aside>
 
