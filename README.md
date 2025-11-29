@@ -144,102 +144,22 @@ GitHub 레포지토리
     - 가볍고 빠른 서비스를 목표로 했기에 첫 화면에서 직관적이고 쉬운 서비스 경험을 제공한다.
 
 ---
-
-WHERE-TO-DRINK/
-├─public/
-│  ├─img/
-│  │  │  navermap.png                    # 네이버 지도 아이콘
-│  │  │  이미지없음.avif                     # 이미지없는 가게 임시 이미지
-│  │  │
-│  │  ├─a_North/                    # 키워드 - 북문의 가게 이미지
-│  │  │      10정든밤.jpg
-│  │  │      11정선생.jpg
-│  │  │      12큐브2.jpg
-│  │  │      13청춘1.jpg
-│  │  │      14사랑과 평화.jpg
-│  │  │      15홍등연화.jpg
-│  │  │      16이판사판.jpg
-│  │  │      17닭동가리.jpg
-│  │  │      18정육회.jpg
-│  │  │      19알비노.jpg
-│  │  │      1취향.jpg
-│  │  │      20다원국밥.jpg
-│  │  │      21한신포차.jpg
-│  │  │      22와다다다.jpg
-│  │  │      23구르메.jpg
-│  │  │      24세미나.jpg
-│  │  │      25최군맥주.jpg
-│  │  │      26더왕365퓨전포차.jpg
-│  │  │      27난탄.jpg
-│  │  │      28임가양꼬치.jpg
-│  │  │      29파랑집.jpg
-│  │  │      2와비사비.jpg
-│  │  │      30better.jpg
-│  │  │      31도깨비야시장.jpg
-│  │  │      32투다리.jpg
-│  │  │      33수리다비다.jpg
-│  │  │      34먹새통.jpg
-│  │  │      35이층술집.jpg
-│  │  │      36철길부산집.jpg
-│  │  │      37슈가조스.jpg
-│  │  │      38재재.jpg
-│  │  │      39잭스펍.jpg
-│  │  │      3한라맥주.jpg
-│  │  │      4사군자민속촌.jpg
-│  │  │      5데얼스.jpg
-│  │  │      6오뉴월.jpg
-│  │  │      7사심.jpg
-│  │  │      8희희.jpg
-│  │  │      9구구포차.jpg
-│  │  │      청춘2.jpg
-│  │  │      큐브1.jpg
-│  │  │
-│  │  ├─b_Main/                    # 키워드 - 정문의 가게 이미지
-│  │  │      11족불장군.jpg
-│  │  │      12경대이모.jpg
-│  │  │      13이웃집.jpg
-│  │  │      14뼈큰감자탕.jpg
-│  │  │      15만달포차.jpg
-│  │  │      16부자숯불막창곰장어아나고.jpg
-│  │  │      1이유있는 감자탕.jpg
-│  │  │      2배터지는 깐풍기.jpg
-│  │  │      3정문똥집.jpg
-│  │  │      4마라도 생굴구이.jpg
-│  │  │      5춘춘갈매기.jpg
-│  │  │      6황제뒷고기.jpg
-│  │  │      7천지삐까리.jpg
-│  │  │      8큰손 왕뼈다귀해장국.jpg
-│  │  │      9꼬지포차.jpg
-│  │  │
-│  │  └─c_Side/                    # 키워드 - 쪽문의 가게 이미지
-│  │          10통큰할머니순대국.jpg
-│  │          11회마을.jpg
-│  │          1통큰아저씨.jpg
-│  │          2쪽문분식.jpg
-│  │          3간식여행.jpg
-│  │          4yin바.jpg
-│  │          5더좀비.jpg
-│  │          6미운놈포차.jpg
-│  │          7Retro.jpg
-│  │          8썬더치킨.jpg
-│  │          9동대구회.jpg
-│  │
-│  └─sound/
-│          roulette.mp3                     # 룰렛 회전하는 사운드
-│
-└─src/
-│     App.jsx                    # 메인 애플리케이션
-│     main.jsx                    #  React 진입점
-│
-├─components/
-│      BarList.jsx                    # 메인 컴포넌트 (필터, 룰렛, 결과 화면)
-│      Header.jsx                    # 메인 제목과 한/영 전환 버튼 컴포넌트
-│      Keyword.jsx                    # 키워드 필터링과 검색 버튼 컴포넌트
-│      MainPage.jsx                    # 키워드 컴포넌트
-│
-├─constant/
-│      mock.js                    # 술집 리스트 데이터
-│
-└─styles/
-         reset.js                    # 초기 화면 세팅
-         typography.js                    # 폰트 및 디자인 컴포넌트
+where-to-drink/  
+├── src/  
+│   ├── components/  
+│   │   ├── BarList.jsx         # 룰렛 및 결과 화면 (로직 포함)  
+│   │   ├── Header.jsx          # 헤더 컴포넌트  
+│   │   ├── Keyword.jsx       # 키워드 선택 및 리롤 버튼  
+│   │   ├── MainPage.jsx     # BarList export  
+│   ├── constant/  
+│   │   ├── mock.js      # 데이터 정리  
+│   ├── styles/  
+│   │   ├── reset.js      # 전역 스타일 정의  
+│   │   ├── typography.js      # 기본 글씨체  
+│   ├── App.jsx                  # 메인 어플리케이션  
+├── public/  
+│   │   ├── a_North          # 키워드 - 북문 가게의 이미지  
+│   │   ├── b_Main         # 키워드 - 정문 가게의 이미지  
+│   │   ├── c_Side         # 키워드 - 쪽문 가게의 이미지  
+│   ├── 이미지없음.avif  
+│   ├── navermap.png
