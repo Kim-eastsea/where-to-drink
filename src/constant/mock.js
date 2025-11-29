@@ -348,7 +348,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: ["#HoneyAppleRiceWine"],
     web_link: "https://map.naver.com/p/entry/place/1881732572?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/24세미나.jpg",
   },
   {
     id: 25,
@@ -446,7 +446,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GreatValue"],
     web_link: "https://map.naver.com/p/entry/place/1879640085?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/31도깨비야시장.jpg",
   },
   {
     id: 59,
@@ -460,7 +460,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: ["#TastyKimchiUdon", "#FamiliarTaste"],
     web_link: "https://map.naver.com/p/entry/place/33920390?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/32투다리.jpg",
   },
   {
     id: 60,
@@ -474,7 +474,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#GoodVibes"],
     web_link: "https://map.naver.com/p/entry/place/1201619852?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/33수리다비다.jpg",
   },
   {
     id: 61,
@@ -488,7 +488,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#TastyGrilledMackerel"],
     web_link: "https://map.naver.com/p/entry/place/1795507489?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/34먹새통.jpg",
   },
   {
     id: 62,
@@ -503,7 +503,7 @@ const MOCK_DATA = [
     eng_hashtag: ["#IzakayaStyle", "#TastyHighball"],
     web_link:
       "https://map.naver.com/p/entry/place/1275177142?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511250231&locale=ko&svcName=map_pcv5",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/35이층술집.jpg",
   },
   {
     id: 63,
@@ -518,7 +518,7 @@ const MOCK_DATA = [
     eng_hashtag: ["#OdenBar"],
     web_link:
       "https://map.naver.com/p/entry/place/2033979543?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511250230&locale=ko&svcName=map_pcv5",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/36철길부산집.jpg",
   },
   {
     id: 64,
@@ -533,7 +533,7 @@ const MOCK_DATA = [
     eng_hashtag: ["#Burgers&cocktails"],
     web_link:
       "https://map.naver.com/p/search/%EC%8A%88%EA%B0%80%EC%A1%B0%EC%8A%A4/place/1656174373?c=15.00,0,0,0,dh&isCorrectAnswer=true&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511252226&locale=ko&svcName=map_pcv5&searchText=%EC%8A%88%EA%B0%80%EC%A1%B0%EC%8A%A4",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/37슈가조스.jpg",
   },
   {
     id: 65,
@@ -548,7 +548,7 @@ const MOCK_DATA = [
     eng_hashtag: ["#Cocktails", "#Whiskey"],
     web_link:
       "https://map.naver.com/p/entry/place/2003983355?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511250229&locale=ko&svcName=map_pcv5",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/38재재.jpg",
   },
   {
     id: 66,
@@ -563,7 +563,7 @@ const MOCK_DATA = [
     eng_hashtag: ["#TastyDraftBeer", "#BringYourOwnSnacks"],
     web_link:
       "https://map.naver.com/p/entry/place/1957109700?c=15.00,0,0,0,dh&placePath=/home?from=map&fromPanelNum=1&additionalHeight=76&timestamp=202511250229&locale=ko&svcName=map_pcv5",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/a_Noth/39잭스펍.jpg",
   },
 
   // --- 정문 (Main Gate) ---
@@ -663,7 +663,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: [],
     web_link: "https://map.naver.com/p/entry/place/1022713177?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/11족불장군.jpg",
   },
   {
     id: 38,
@@ -705,21 +705,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#SeasonalFruitSnack"],
     web_link: "https://map.naver.com/p/entry/place/38365272?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
-  },
-  {
-    id: 41,
-    name: "낭만상회",
-    kor_loc: "정문",
-    kor_food: ["한식"],
-    kor_mood: ["지인"],
-    kor_hashtag: [],
-    eng_loc: "Main Gate",
-    eng_food: ["Korean"],
-    eng_mood: ["Friends"],
-    eng_hashtag: [],
-    web_link: "https://map.naver.com/p/entry/place/1162274841?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/b_Main/9꼬지포차.jpg",
   },
   {
     id: 42,
@@ -733,7 +719,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: ["#GoodWithFriends"],
     web_link: "https://map.naver.com/p/entry/place/1428840850?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/b_Main/12경대이모.jpg",
   },
   {
     id: 43,
@@ -747,7 +733,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#ForRawBeef"],
     web_link: "https://map.naver.com/p/entry/place/1744477600?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/b_Main/13이웃집.jpg",
   },
   {
     id: 44,
@@ -805,7 +791,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: ["#RecommendedForGroups", "#CheeseEggRoll"],
     web_link: "https://map.naver.com/p/entry/place/1065583558?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/c_Side/1통큰아저씨.jpg",
   },
   {
     id: 48,
@@ -861,7 +847,7 @@ const MOCK_DATA = [
     eng_mood: ["Groups", "Friends"],
     eng_hashtag: [],
     web_link: "https://map.naver.com/p/entry/place/2029223476?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/c_Side/5더좀비.jpg",
   },
   {
     id: 52,
@@ -921,7 +907,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends", "Couples"],
     eng_hashtag: ["#TastyButHotInSummer"],
     web_link: "https://map.naver.com/p/entry/place/16135779?c=15.00,0,0,0,dh",
-    img_url: "/img/Side/동대구회.jpg",
+    img_url: "/img/c_Side/9동대구회.jpg",
   },
   {
     id: 56,
@@ -935,7 +921,7 @@ const MOCK_DATA = [
     eng_mood: ["Friends"],
     eng_hashtag: ["#HangoverDrink"],
     web_link: "https://map.naver.com/p/entry/place/1422484329?c=15.00,0,0,0,dh",
-    img_url: "/img/이미지없음.avif",
+    img_url: "/img/c_Side/10통큰할머니순대국.jpg",
   },
   {
     id: 57,
