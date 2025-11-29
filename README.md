@@ -14,9 +14,9 @@
 
 - 서비스 메인 화면
     
-    ![image.png](attachment:82b020a9-1c3e-4bdf-9587-aac8139e9cd6:image.png)
+    ![image.png](mainPage.png)
     
-    ![image.png](attachment:363f8915-385c-46ec-86a0-fe6258bf42eb:image.png)
+    ![image.png](result.png)
     
 - 영상 링크
     
@@ -125,7 +125,7 @@
 
 - 술집 랜덤 추천 서비스
 
-![image.png](attachment:ca5560ad-b8ba-425e-9101-bda61f4a5570:image.png)
+![image.png](mainPage.png)
 
 ---
 
