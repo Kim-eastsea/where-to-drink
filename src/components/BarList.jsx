@@ -39,6 +39,10 @@ const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
   useEffect(() => {
     audioRef.current = new Audio("/sound/roulette.mp3");
   }, []);
+  const TadaAudio = useRef(null);
+  useEffect(() => {
+    TadaAudio.current = new Audio("/sound/tada.mp3");
+  }, []);
 
   const isGameFinishedRef = useRef(false);
   const startupTimerRef = useRef(null);
@@ -60,6 +64,8 @@ const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
       setPrizeNumber(visualPrizeIndex);
 
       if (audioRef.current) {
+        TadaAudio.current.pause();
+        TadaAudio.current.currentTime = 0;
         audioRef.current.currentTime = 0;
         audioRef.current
           .play()
@@ -75,6 +81,10 @@ const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
+      }
+      if (TadaAudio.current) {
+        TadaAudio.current.pause();
+        TadaAudio.current.currentTime = 0;
       }
       confetti.reset();
     };
@@ -105,6 +115,12 @@ const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.currentTime = 0;
+    }
+    if (TadaAudio.current) {
+      TadaAudio.current.currentTime = 0;
+      TadaAudio.current
+        .play()
+        .catch((e) => console.log("Sound play error:", e));
     }
 
     setFinalBar(finalResultRef.current);
@@ -377,8 +393,4 @@ const MapBtn = styled.a`
     width: 34px;
     height: 34px;
   }
-`;
-
-const HobanuPic = styled.img`
-  width: 300px;
 `;
