@@ -1,4 +1,3 @@
-import "./App.css";
 import styled from "@emotion/styled";
 import { Global } from "@emotion/react";
 import { GlobalTypographyStyle } from "./styles/typography";
