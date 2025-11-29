@@ -92,7 +92,7 @@ const Keyword = ({
         </Options>
       </KeywordBox>
       <KeywordBox>
-        <Label>{language === "Kor" ? "분위기" : "Mood"}</Label>
+        <Label>{language === "Kor" ? "목적" : "Mood"}</Label>
         <Options>
           <OptionBtn
             isActive={tempKey3 === "전체"}
@@ -133,8 +133,8 @@ const Keyword = ({
             ? "돌리는 중..."
             : "Spinning..."
           : language === "Kor"
-          ? "🎲 돌려돌려 돌림판"
-          : "🎲 Spin the Wheel"}
+          ? "🎲 돌려돌려 돌림판!"
+          : "🎲 Spin the Wheel!"}
       </RerollBtn>
     </Container>
   );
@@ -151,7 +151,7 @@ const Container = styled.div`
   background: white;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.13);
 `;
 
 const KeywordBox = styled.div`

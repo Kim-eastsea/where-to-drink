@@ -4,7 +4,7 @@ export const GlobalResetStyle = css`
   html,
   body,
   #root {
-    background-color: #ffe4b8;
+    background-color: #3d3d3dff;
     width: 100%;
     height: 100%;
     margin: 0;
