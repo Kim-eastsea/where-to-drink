@@ -10,9 +10,9 @@ GitHub 레포지토리
 
 - 서비스 메인 화면
 
-![mainpage.png]
+![mainpage.png](mainPage.png)
 
-![image.png]
+![image.png](result.png)
 
 - (영상 링크)
 </aside>
@@ -110,7 +110,7 @@ GitHub 레포지토리
 
 - 술집 랜덤 추천 서비스
 
-![mainPage.png]
+![mainPage.png](mainPage.png)
 
 ---
 
