@@ -7,8 +7,18 @@ import { Wheel } from "react-custom-roulette";
 // 룰렛 게임 컴포넌트
 const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
   const rouletteData = useMemo(() => {
-    const colors = ["#ff7272", "#77c6ff", "#ffd084", "#71ff9c", "#e2beff"];
-    return Array.from({ length: 25 }).map((_, index) => ({
+    const colors = [
+      "#FF6F6F",
+      "#FF8F69",
+      "#FDB36A",
+      "#F3E777",
+      "#C6DB72",
+      "#7AD169",
+      "#64D4E0",
+      "#6ABCEB",
+      "#65A9E6",
+    ];
+    return Array.from({ length: 9 }).map((_, index) => ({
       option: "",
       style: {
         backgroundColor: colors[index % colors.length],
@@ -42,7 +52,7 @@ const RouletteGame = ({ data, language, randomSeed, onSpinEnd }) => {
     const realPrizeIndex = Math.floor(randomSeed * data.length);
     finalResultRef.current = data[realPrizeIndex];
 
-    const visualPrizeIndex = Math.floor(Math.random() * 25);
+    const visualPrizeIndex = Math.floor(Math.random() * 9);
 
     startupTimerRef.current = setTimeout(() => {
       if (isGameFinishedRef.current) return;
@@ -253,6 +263,8 @@ const Container = styled.div`
   gap: 20px;
   min-height: 400px;
   position: relative;
+
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 `;
 
 const WheelContainer = styled.div`
@@ -365,4 +377,8 @@ const MapBtn = styled.a`
     width: 34px;
     height: 34px;
   }
+`;
+
+const HobanuPic = styled.img`
+  width: 300px;
 `;
