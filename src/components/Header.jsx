@@ -2,8 +2,11 @@ import styled from "@emotion/styled";
 
 const Header = ({ language, setLanguage }) => {
   return (
-    <ProjectTitle>
-      {language === "Kor" ? "어디서 마실래?" : "Where to Drink?"}
+    <HeaderWrapper>
+      <div />
+      <ProjectTitle>
+        {language === "Kor" ? "어디서 마실래?" : "Where to Drink?"}
+      </ProjectTitle>
       <LanguageRow>
         <LanguageBtn
           isActive={language === "Kor"}
@@ -18,7 +21,7 @@ const Header = ({ language, setLanguage }) => {
           Eng
         </LanguageBtn>
       </LanguageRow>
-    </ProjectTitle>
+    </HeaderWrapper>
   );
 };
 
@@ -26,22 +29,14 @@ export default Header;
 
 const ProjectTitle = styled.span`
   font-weight: bold;
-  background-color: #ffffff;
   width: 100%;
-  max-width: 700px;
   text-align: center;
   font-size: 2rem;
-  padding: 10px 40px;
-  border-radius: 10px;
-  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.14);
+  padding: 10px 10px;
   color: #333;
-  margin-bottom: 30px;
 `;
 
 const LanguageRow = styled.div`
-  position: absolute;
-  top: 20px;
-  right: 25px;
   display: flex;
   align-items: center;
   border: 1px solid #c6c6c6;
@@ -53,6 +48,7 @@ const LanguageRow = styled.div`
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.13);
 `;
 const LanguageBtn = styled.button`
+  text-align: center;
   width: 50%;
   max-width: 45px;
   padding: 5px 0;
@@ -68,4 +64,24 @@ const LanguageBtn = styled.button`
     color: ${(props) => (props.isActive ? "#3f3f3f" : "#333")};
     background-color: ${(props) => (props.isActive ? "#c6c6c6" : "#f0f0f0")};
   }
+`;
+
+const HeaderWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+  justify-items: right;
+
+  font-weight: bold;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 700px;
+  align-items: center;
+  font-size: 2rem;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 0 15px 20px rgba(0, 0, 0, 0.14);
+  color: #333;
+  margin-bottom: 30px;
 `;
