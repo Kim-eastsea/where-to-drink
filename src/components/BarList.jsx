@@ -267,12 +267,15 @@ const BarList = ({
 export default BarList;
 
 const Container = styled.div`
+  font-weight: bold;
   width: 100%;
   max-width: 700px;
   padding: 20px;
   background-color: #f8f8f8;
   border-radius: 10px;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -394,3 +397,36 @@ const MapBtn = styled.a`
     height: 34px;
   }
 `;
+
+const Icon = styled.div`
+  font-size: 80px;
+  margin-bottom: 12px;
+`;
+
+const icons = [
+  "🍕",
+  "🍔",
+  "🍿",
+  "🌭",
+  "🥓",
+  "🥪",
+  "🌯",
+  "🍗",
+  "🥟",
+  "🍥",
+  "🍢",
+  "🥘",
+  "🍲",
+  "🫕",
+  "🧃",
+  "☕",
+  "🍵",
+  "🍾",
+  "🍷",
+  "🍸",
+  "🍹",
+  "🍺",
+  "🍻",
+  "🥂",
+  "🍽️",
+];
